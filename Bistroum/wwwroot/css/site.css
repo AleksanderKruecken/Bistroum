@@ -37,7 +37,40 @@ body {
 
 
 /* bistroum dodatki */
+/* Elipse sorobana */
 ellipse {
     stroke: black;
     fill: burlywood;
+}
+
+/* Okvir sorobana */
+#okvir {
+/* ne dela v FF
+    width: 100%;
+    height: 100%;
+*/
+    stroke: slategray;
+    stroke-width: 30;
+    fill: lavender;
+}
+
+#resetGumb {
+    fill: orange;
+    stroke: black;
+    stroke-width: 1;
+}
+
+/* Oznacbe na sorobanu */
+circle {
+    stroke: white;
+    stroke-width: 4;
+    fill: white;
+}
+
+
+
+/* Vodoravna èrta sorobana */
+line {
+    stroke: slategray;
+    stroke-width: 14;
 }

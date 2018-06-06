@@ -6,19 +6,45 @@
     // Izpiše izbrani krogec in gumb za debug
     document.getElementById("spanIzbraniKrogec").innerHTML = izbraniKrogec;
 
-    // Tukaj pride Martina koda za premik vseh potrebnih krogcev
-    // Ta spodnja koda premakne pritisnjeni krogec na y=0
-    document.getElementById(izbraniKrogec).setAttribute('cy', 0);
+    // Krogce postavi na pravo pozicijo ob pritisku na dolocen krogec
+    
+    var stevilo = izbraniKrogec % 10;
+    var y = document.getElementById(izbraniKrogec).getAttribute('cy');
+    // premikamo zgornjo kroglico
+    if (stevilo == 5) {  
+        // kroglica je zgoraj in jo moramo prestaviti dol
+        if (y == yUp) {
+            document.getElementById(izbraniKrogec).setAttribute('cy', yUp + yDiff);
+        // kroglica je spodaj in jo moramo prestaviti gor
+        } else {
+            document.getElementById(izbraniKrogec).setAttribute('cy', yUp);
+        }
+    } else {
+        // najprej preverimo ali je izbrana kroglica gor ali dol
+        // kroglica je na zacetni poziciji in jo moramo prestaviti gor
+        if (y == (yStart + (stevilo - 1) * yDiff)) {
+            for (var i = 1; i <= stevilo; i++) {  // to so vse kroglice nad njo
+                document.getElementById(izbraniKrogec - (stevilo - i)).setAttribute('cy', yStart + (i - 1) * yDiff - yDiff);
+            }
+        }
+        // kroglica je zgoraj in jo moramo prestaviti dol
+        else {
+            // to so vse kroglice pod njo
+            for (var i = stevilo; i <= 4; i++) {
+                //alert('izbrani krogec = ' + izbraniKrogec);
+                //alert('izbrano stevilo = ' + stevilo);
+                //alert('i = ' + i);
+                //alert('vrednost ' + (izbraniKrogec  + (i - stevilo)));
+                //alert('test ' + (11 + (1 - 1)));
+                //var indeks = i - stevilo;
+                //alert(indeks);
+                document.getElementById(izbraniKrogec - (stevilo - i)).setAttribute('cy', yStart + (i - 1) * yDiff);
+                //document.getElementById(11).setAttribute('cy', yStart + (i - 1) * yDiff);
+                //alert('konec');
+            }
+        }
+    }
 
-/*
-    if (izbraniGumb == leviGumbKoda) {
-        leviGumb(izbraniKrogec);
-    }
-    if (izbraniGumb == desniGumbKoda) {
-        desniGumb();
-    }
-    preveriKonecIgre();
-*/
 }
 
 // Ponastavi kroglice na zacetno pozicijo
@@ -31,6 +57,7 @@ function reset() {
     }
 }
 
+// Dinamično izrise in vstavi soroban v HTML
 function generiranjeSorobana() {
     var vrstice = '';
 

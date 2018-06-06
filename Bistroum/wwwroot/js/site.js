@@ -2,16 +2,20 @@
 
 
 function pritisk(event) {
-    izbranaCelica = event.target.id;
+    izbraniKrogec = event.target.id;
+    izbraniKrogecString = "'" + izbraniKrogec + "'";
     izbraniGumb = event.button;
 
-    // Izpiše izbrano celico in gumb za debug
+    // Izpiše izbrani krogec in gumb za debug
+    document.getElementById("spanIzbraniKrogec").innerHTML = izbraniKrogec;
 
-    document.getElementById("spanIzbraniKrogec").innerHTML = izbranaCelica;
+    // Tukaj pride Martina koda za premik vseh potrebnih krogcev
+    // Ta spodnja koda premakne pritisnjeni krogec na y=0
+    document.getElementById(izbraniKrogec).setAttribute('cy', 0);
 
 /*
     if (izbraniGumb == leviGumbKoda) {
-        leviGumb(izbranaCelica);
+        leviGumb(izbraniKrogec);
     }
     if (izbraniGumb == desniGumbKoda) {
         desniGumb();

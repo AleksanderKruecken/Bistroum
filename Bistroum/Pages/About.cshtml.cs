@@ -12,7 +12,7 @@ namespace Bistroum.Pages
 
         public void OnGet()
         {
-            Message = "Your application description page.";
+            Message = "Zgodovina sorobana";
         }
     }
 }

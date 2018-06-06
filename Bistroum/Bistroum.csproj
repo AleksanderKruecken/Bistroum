@@ -4,6 +4,7 @@
     <UserSecretsId>aspnet-Bistroum-9B70F6F6-6343-42BD-A64C-9124DA5FB333</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="2.8.391" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.2" PrivateAssets="All" />

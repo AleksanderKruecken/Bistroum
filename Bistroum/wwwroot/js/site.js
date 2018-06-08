@@ -2,9 +2,9 @@
     var stevilo = 0;
     var eksponent = 1;
 
-        
+    // Vraca ostanek pri deljenju. Primer 75%10 vrne 5
     stevilo = id % 10;
-    // Celostevilsko deljenje. Primer : 75 / 10 mora dati rezultat 7
+    // Celostevilsko deljenje. Primer: 75/10 vrne 7
     eksponent = Math.floor(id / 10); 
     
     if ((stevilo < 5) && (stevilo > 1)) {
@@ -16,17 +16,34 @@
     return vrednost;
 }
 
+function vrednostSorobana() {
+    var vsota = 0;
+
+    for (var i = 1; i <= n; i++) {
+        vsota += vrednostKroglice(i * 10 + 5);
+        for (var j = 1; j <= 4; j++) {
+            vsota += vrednostKroglice(i * 10 + j);
+        }
+    }
+        return vsota;
+}
+
+
+
 
 function pritisk(event) {
     izbraniKrogec = event.target.id;
     izbraniKrogecString = "'" + izbraniKrogec + "'";
     izbraniGumb = event.button;
 
-    // Izpiše id izbrane krogec
+    // Izpise id izbrane krogec
     document.getElementById("spanIzbraniKrogec").innerHTML = izbraniKrogec;
 
-    // Izbriše vrednost izbranega krogca
+    // Izpise vrednost izbranega krogca
     document.getElementById("spanVrednostKroglice").innerHTML = vrednostKroglice(izbraniKrogec);
+
+    // Izpise vrednost sorobana
+    document.getElementById("spanVrednostSorobana").innerHTML = vrednostSorobana();
 
     // Krogce postavi na pravo pozicijo ob pritisku na dolocen krogec
     

@@ -1,4 +1,33 @@
-﻿function vrednostKroglice(id) {
+﻿function polozajKroglice(id) {
+    // 0 pomeni zacetno pozicijo
+    // 1 pomeni prestavljeno
+
+    var y = document.getElementById(id).getAttribute('cy');
+
+    var stevilo = 0;
+    stevilo = id % 10;
+    if (stevilo == 5) {
+        if (y == yUp) {
+            return 0;
+        }
+        else {
+            return 1;
+        }
+    }
+    else {
+        if (y == (yStart + (stevilo - 1) * yDiff)) {
+            return 0;
+
+        }
+        else {
+            return 1;
+        }
+
+    }
+}
+
+
+function vrednostKroglice(id) {
     var stevilo = 0;
     var eksponent = 1;
 
@@ -20,16 +49,13 @@ function vrednostSorobana() {
     var vsota = 0;
 
     for (var i = 1; i <= n; i++) {
-        vsota += vrednostKroglice(i * 10 + 5);
+        vsota += vrednostKroglice(i * 10 + 5) * polozajKroglice(i * 10 + 5);
         for (var j = 1; j <= 4; j++) {
-            vsota += vrednostKroglice(i * 10 + j);
+            vsota += vrednostKroglice(i * 10 + j) * polozajKroglice(i * 10 + j);
         }
     }
-        return vsota;
+    return vsota;
 }
-
-
-
 
 function pritisk(event) {
     izbraniKrogec = event.target.id;
@@ -78,10 +104,10 @@ function pritisk(event) {
 
 
     // Izpise id izbrane krogec
-    document.getElementById("spanIzbraniKrogec").innerHTML = izbraniKrogec;
+    //document.getElementById("spanIzbraniKrogec").innerHTML = izbraniKrogec;
 
     // Izpise vrednost izbranega krogca
-    document.getElementById("spanVrednostKroglice").innerHTML = vrednostKroglice(izbraniKrogec);
+    //document.getElementById("spanVrednostKroglice").innerHTML = vrednostKroglice(izbraniKrogec);
 
     // Izpise vrednost sorobana
     document.getElementById("spanVrednostSorobana").innerHTML = vrednostSorobana();

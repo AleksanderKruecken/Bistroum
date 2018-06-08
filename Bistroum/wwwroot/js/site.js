@@ -38,6 +38,8 @@
                 //alert('test ' + (11 + (1 - 1)));
                 //var indeks = i - stevilo;
                 //alert(indeks);
+                // izbraniKrogec + (i - stevilo) vraca napacen rezultat ker naredi string concatenate namesto sestevanje
+                // Resi s parseInt(izbranKrogec)
                 document.getElementById(izbraniKrogec - (stevilo - i)).setAttribute('cy', yStart + (i - 1) * yDiff);
                 //document.getElementById(11).setAttribute('cy', yStart + (i - 1) * yDiff);
                 //alert('konec');

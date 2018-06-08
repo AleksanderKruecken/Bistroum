@@ -1,0 +1,43 @@
+﻿@page
+@model Bistroum.Pages.Results.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Result</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Result.UserID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Result.UserID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Result.Level)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Result.Level)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Result.Time)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Result.Time)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Result.DateCreated)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Result.DateCreated)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Result.ID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

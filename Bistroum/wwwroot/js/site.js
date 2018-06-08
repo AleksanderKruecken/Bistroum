@@ -36,17 +36,7 @@ function pritisk(event) {
     izbraniKrogecString = "'" + izbraniKrogec + "'";
     izbraniGumb = event.button;
 
-    // Izpise id izbrane krogec
-    document.getElementById("spanIzbraniKrogec").innerHTML = izbraniKrogec;
-
-    // Izpise vrednost izbranega krogca
-    document.getElementById("spanVrednostKroglice").innerHTML = vrednostKroglice(izbraniKrogec);
-
-    // Izpise vrednost sorobana
-    document.getElementById("spanVrednostSorobana").innerHTML = vrednostSorobana();
-
-    // Krogce postavi na pravo pozicijo ob pritisku na dolocen krogec
-    
+    // Krogce postavi na pravo pozicijo ob pritisku na dolocen krogec 
     var stevilo = izbraniKrogec % 10;
     var y = document.getElementById(izbraniKrogec).getAttribute('cy');
     // premikamo zgornjo kroglico
@@ -85,6 +75,17 @@ function pritisk(event) {
             }
         }
     }
+
+
+    // Izpise id izbrane krogec
+    document.getElementById("spanIzbraniKrogec").innerHTML = izbraniKrogec;
+
+    // Izpise vrednost izbranega krogca
+    document.getElementById("spanVrednostKroglice").innerHTML = vrednostKroglice(izbraniKrogec);
+
+    // Izpise vrednost sorobana
+    document.getElementById("spanVrednostSorobana").innerHTML = vrednostSorobana();
+
 
 }
 

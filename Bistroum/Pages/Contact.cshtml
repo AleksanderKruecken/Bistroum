@@ -7,7 +7,6 @@
 <!---
 <h3>@Model.Message</h3>
 -->
-
 <!--
 <address>
     Martina Krücken<br />
@@ -22,3 +21,8 @@
 <address>
     <strong>Email:</strong> <a href="mailto:info@bistroum.si">info@bistroum.si</a><br />
 </address>
+
+<!-- Ta del se generira za layout skriptami, torej cisto na koncu -->
+@section scripts {
+    <script src="~/js/contact-konec.js" asp-append-version="true"></script>
+}

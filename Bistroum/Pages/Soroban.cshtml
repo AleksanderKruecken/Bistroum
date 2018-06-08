@@ -1,0 +1,14 @@
+﻿@page
+@model SorobanModel
+@{
+    ViewData["Title"] = "Soroban";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@Model.Message</h3>
+
+<p>Tukaj pride zgodovina sorobana</p>
+
+<!-- Ta del se generira za layout skriptami, torej cisto na koncu -->
+@section scripts {
+    <script src="~/js/soroban-konec.js" asp-append-version="true"></script>
+}

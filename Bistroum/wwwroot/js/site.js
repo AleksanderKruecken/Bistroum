@@ -123,6 +123,9 @@ function reset() {
             document.getElementById(10 * i + j).setAttribute('cy', yStart + (j - 1) * yDiff);
         }
     }
+
+    // Izpise vrednost sorobana
+    document.getElementById("spanVrednostSorobana").innerHTML = vrednostSorobana();
 }
 
 
@@ -139,7 +142,7 @@ function generiranjeSorobana() {
     vrstice = vrstice + "<line class='okvir' x1='594' y1='40' x2='594' y2='494' />";  
     vrstice = vrstice + "<rect id='resetGumb' x='500' y='2' rx='5' ry='5' width='100' height='43' />";
     vrstice = vrstice + "<text id='resetTekst' x='507' y='28'>Ponastavi</text>";
-    vrstice = vrstice + "<line id='sredinskaCrta' x1='0' y1='174' x2='800' y2='174' />";
+    vrstice = vrstice + "<line id='sredinskaCrta' x1='0' y1='174' x2='600' y2='174' />";
 
     // Looping za kroglice petice (narise vse krogce v zgornji vrstici)
     for (var i = 1; i <= n; i++) {
@@ -198,5 +201,3 @@ bElipse = 31;
 // Stevilo stolpcev v sorobanu
 n = 5;
 
-generiranjeSorobana();
-poslusajDogodke();

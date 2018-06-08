@@ -1,0 +1,71 @@
+﻿@page
+@model Bistroum.Pages.UcenjeModel
+@{
+    ViewData["Title"] = "Učenje";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<!--
+<h3>@Model.Message</h3>
+-->
+
+
+<div class="row">
+    <div class="col-xs-2">
+        <span>Tu pride meni</span>
+    </div>
+    <div id="DivSvg" class="col-xs-7">
+
+    </div>
+    <div class="col-xs-3">
+        <span>Tukaj pridejo navodila za tutorial</span>
+    </div>
+
+</div><!-- row -->
+
+
+<div class="row">
+    <div class="col-xs-1" style="border-color:black;border-style:solid">
+        S1
+    </div>
+    <div class="col-md-1" style="border-color:black;border-style:solid">
+        S2
+    </div>
+    <div class="col-md-1" style="border-color:black;border-style:solid">
+        S3
+    </div>
+    <div class="col-md-1" style="border-color:black;border-style:solid">
+        S4
+    </div>
+    <div class="col-md-1" style="border-color:black;border-style:solid">
+        S5
+    </div>
+    <div class="col-md-1" style="border-color:black;border-style:solid">
+        S6
+    </div>
+    <div class="col-md-1" style="border-color:black;border-style:solid">
+        S7
+    </div>
+    <div class="col-md-1" style="border-color:black;border-style:solid">
+        S8
+    </div>
+    <div class="col-md-1" style="border-color:black;border-style:solid">
+        S9
+    </div>
+    <div class="col-md-1" style="border-color:black;border-style:solid">
+        S10
+    </div>
+    <div class="col-md-1" style="border-color:black;border-style:solid">
+        S11
+    </div>
+    <div class="col-md-1" style="border-color:black;border-style:solid">
+        S12
+    </div>
+</div>
+
+<!-- Ta del se generira za layout skriptami, torej cisto na koncu -->
+@section scripts {
+    <script src="~/js/ucenje-konec.js" asp-append-version="true"></script>
+}
+

@@ -54,11 +54,28 @@ ellipse {
     fill: lavender;
 }
 
+.okvir {
+    stroke: slategray;
+    stroke-width: 12;
+}
+
+.palcke {
+    stroke: slategray;
+    stroke-width: 12;
+}
+
 #resetGumb {
-    fill: orange;
-    stroke: black;
+    fill: slategray;
+    stroke: slategray;
     stroke-width: 1;
 }
+
+#resetTekst {
+    fill: white;
+    font-size:large;
+    font-weight: bold;
+}
+
 
 /* Oznacbe na sorobanu */
 circle {
@@ -70,7 +87,7 @@ circle {
 
 
 /* Vodoravna èrta sorobana */
-line {
+#sredinskaCrta {
     stroke: slategray;
-    stroke-width: 14;
+    stroke-width: 11;
 }

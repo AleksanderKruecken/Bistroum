@@ -1,10 +1,32 @@
-﻿function pritisk(event) {
+﻿function vrednostKroglice(id) {
+    var stevilo = 0;
+    var eksponent = 1;
+
+        
+    stevilo = id % 10;
+    // Celostevilsko deljenje. Primer : 75 / 10 mora dati rezultat 7
+    eksponent = Math.floor(id / 10); 
+    
+    if ((stevilo < 5) && (stevilo > 1)) {
+        stevilo = 1;
+    }
+    
+    vrednost = Math.pow(10, eksponent - 1) * stevilo;
+    
+    return vrednost;
+}
+
+
+function pritisk(event) {
     izbraniKrogec = event.target.id;
     izbraniKrogecString = "'" + izbraniKrogec + "'";
     izbraniGumb = event.button;
 
-    // Izpiše izbrani krogec in gumb za debug
+    // Izpiše id izbrane krogec
     document.getElementById("spanIzbraniKrogec").innerHTML = izbraniKrogec;
+
+    // Izbriše vrednost izbranega krogca
+    document.getElementById("spanVrednostKroglice").innerHTML = vrednostKroglice(izbraniKrogec);
 
     // Krogce postavi na pravo pozicijo ob pritisku na dolocen krogec
     
@@ -59,23 +81,25 @@ function reset() {
     }
 }
 
+
 // Dinamično izrise in vstavi soroban v HTML
 function generiranjeSorobana() {
     var vrstice = '';
 
-    vrstice = vrstice + "<svg id='sorobanSVG' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400' >";
+    vrstice = vrstice + "<svg id='sorobanSVG' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 500' >";
 
     // Izris okvirja
-    vrstice = vrstice + "<rect id='okvir' x='0' y='0' width='100%' height='100%' />";
-    vrstice = vrstice + "<rect id='resetGumb' x='715' y='2' rx='5' ry='5' width='70' height='13' />";
-    vrstice = vrstice + "<text id='resetTekst' x='720' y='13' fill='red'>Ponastavi</text>";
-    vrstice = vrstice + "<line x1='0' y1='123' x2='800' y2='123' />";
-    vrstice = vrstice + "<circle cx='200' cy='123' r='2' />";
-    vrstice = vrstice + "<circle cx='500' cy='123' r='2' />";
-
+    vrstice = vrstice + "<line class='okvir' x1='0' y1='40' x2='600' y2='40' />";
+    vrstice = vrstice + "<line class='okvir' x1='0' y1='494' x2='600' y2='494' />";
+    vrstice = vrstice + "<line class='okvir' x1='6' y1='40' x2='6' y2='494' />";
+    vrstice = vrstice + "<line class='okvir' x1='594' y1='40' x2='594' y2='494' />";  
+    vrstice = vrstice + "<rect id='resetGumb' x='500' y='2' rx='5' ry='5' width='100' height='43' />";
+    vrstice = vrstice + "<text id='resetTekst' x='507' y='28'>Ponastavi</text>";
+    vrstice = vrstice + "<line id='sredinskaCrta' x1='0' y1='174' x2='800' y2='174' />";
 
     // Looping za kroglice petice (narise vse krogce v zgornji vrstici)
     for (var i = 1; i <= n; i++) {
+        vrstice = vrstice + "<line class='palcke' x1='" + (xStart + (n - i) * xDiff) + "' y1='44' x2='" + (xStart + (n - i) * xDiff) + "' y2='490' />";
         vrstice = vrstice + "<ellipse id='" + (i * 10 + 5) + "' cx='" + (xStart + (n - i) * xDiff) + "' cy ='" + yUp + "' rx='" + aElipse + "' ry ='" + bElipse + "' />";
         // Looping za kroglice enice (narise vse kroglice v spodnjih 4-ih vrsticah
         for (var j = 1; j <= 4; j++) {
@@ -83,6 +107,7 @@ function generiranjeSorobana() {
         }
     }
 
+    vrstice = vrstice + "<circle cx='300' cy='174' r='2' />";
     vrstice = vrstice + "</svg>";
     // Napolnitev SVG elementa
     //document.getElementById("sorobanSVG").innerHTML = vrstice; // Ne dela v IE
@@ -106,26 +131,28 @@ function poslusajDogodke() {
 }
 
 
-
-
-
 // Globalne spremenljivke
 leviGumbKoda = 0;
 desniGumbKoda = 2;
 
-xDiff = 100;
-yDiff = 51;
+// Razmik med stolpci v sorobanu
+xDiff = 110;
+// Razmik med krogci v enem stolpcu
+yDiff = 62;
 
-yStart = 207;
-yUp = 40;
-xStart = 100;
+// Oddaljenost zgornjih krogcev od okvirja sorobana
+yUp = 76;
+// Oddaljenost spodnjih krogcev od okvirja sorobana
+yStart = 272;
+// Oddaljenost prvega stolpca od okvirja sorobana
+xStart = 80;
 
-aElipse = 37;
-bElipse = 25;
-
-n = 7;
-
+// Dolzina krogca v sorobanu
+aElipse = 49;
+// Visina krogca v sorobanu
+bElipse = 31;
+// Stevilo stolpcev v sorobanu
+n = 5;
 
 generiranjeSorobana();
-
 poslusajDogodke();

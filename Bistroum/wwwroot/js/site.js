@@ -146,7 +146,7 @@ function generiranjeSorobana() {
 
     // Looping za kroglice petice (narise vse krogce v zgornji vrstici)
     for (var i = 1; i <= n; i++) {
-        vrstice = vrstice + "<line class='palcke' x1='" + (xStart + (n - i) * xDiff) + "' y1='44' x2='" + (xStart + (n - i) * xDiff) + "' y2='490' />";
+        vrstice = vrstice + "<line class='okvir' x1='" + (xStart + (n - i) * xDiff) + "' y1='44' x2='" + (xStart + (n - i) * xDiff) + "' y2='490' />";
         vrstice = vrstice + "<ellipse id='" + (i * 10 + 5) + "' cx='" + (xStart + (n - i) * xDiff) + "' cy ='" + yUp + "' rx='" + aElipse + "' ry ='" + bElipse + "' />";
         // Looping za kroglice enice (narise vse kroglice v spodnjih 4-ih vrsticah
         for (var j = 1; j <= 4; j++) {
@@ -176,6 +176,8 @@ function poslusajDogodke() {
     document.getElementById("resetGumb").addEventListener("mousedown", reset);
     document.getElementById("resetTekst").addEventListener("mousedown", reset);
 }
+
+
 
 
 // Globalne spremenljivke

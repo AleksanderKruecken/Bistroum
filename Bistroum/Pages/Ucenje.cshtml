@@ -13,7 +13,23 @@
 
 <div class="row">
     <div class="col-xs-2">
-        <span>Tu pride meni</span>
+        @{
+            //string x = HttpContext.Request.Query["page"].ToString();
+            //string x = HttpContext.Request.Host@Context.Request.Path
+            string urlParameter = HttpContext.Request.QueryString.ToString();
+            string vrednost;
+
+            if (urlParameter == "?i=sestevanje")
+            {
+                vrednost = "Podmeni sestevanje";
+
+            }
+            else {
+                vrednost = "Podmeni drugo";
+            }
+        }
+        <span onclick='animacija()'>@vrednost</span>
+
     </div>
     <div id="DivSvg" class="col-xs-7">
 

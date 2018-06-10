@@ -1,5 +1,7 @@
 body {
-    padding-top: 50px;
+/* Zakomentirano zaradi navbar-static-top, odkomentiraj pri navbar-fixed-top
+    padding-top: 50px; 
+*/
     padding-bottom: 20px;
 }
 
@@ -36,37 +38,34 @@ body {
 
 
 
-/* bistroum dodatki */
+/* bistroum dodatki 
+#AA7639, #323875, 
+#67AB73, #B86F94 roza
+#D4AD6A, #44887B
+#D4AD6A, #5D5393
+#3C8C4A, #95C89E, #96416C = zelene kroglice, vijolièen okvir
+*/
 /* Elipse sorobana */
 ellipse {
-    stroke: black;
-    fill: burlywood;
+    stroke: #3C8C4A;
+    fill: #95C89E;
 }
 
 /* Okvir sorobana */
-#okvir {
-/* ne dela v FF
-    width: 100%;
-    height: 100%;
-*/
-    stroke: slategray;
-    stroke-width: 30;
-    fill: lavender;
-}
-
 .okvir {
-    stroke: slategray;
+    stroke: #96416C;
     stroke-width: 12;
 }
 
-.palcke {
-    stroke: slategray;
-    stroke-width: 12;
+/* Vodoravna èrta sorobana */
+#sredinskaCrta {
+    stroke: #96416C;
+    stroke-width: 11;
 }
 
 #resetGumb {
-    fill: slategray;
-    stroke: slategray;
+    fill: #96416C;
+    stroke: #96416C;
     stroke-width: 1;
 }
 
@@ -86,8 +85,4 @@ circle {
 
 
 
-/* Vodoravna èrta sorobana */
-#sredinskaCrta {
-    stroke: slategray;
-    stroke-width: 11;
-}
+

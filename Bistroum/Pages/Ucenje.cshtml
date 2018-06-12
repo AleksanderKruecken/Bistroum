@@ -4,7 +4,9 @@
     ViewData["Title"] = "Učenje";
 }
 
+<!--
 <h2>@ViewData["Title"]</h2>
+-->
 
 <!--
 <h3>@Model.Message</h3>
@@ -14,34 +16,93 @@
 <div class="row">
     <div class="col-xs-2">
         @{
-            //string x = HttpContext.Request.Query["page"].ToString();
-            //string x = HttpContext.Request.Host@Context.Request.Path
             string urlParameter = HttpContext.Request.QueryString.ToString();
-            string vrednost;
 
-            if (urlParameter == "?i=sestevanje")
+            // Zapis stevil
+            if (urlParameter == "?i=1")
             {
-                vrednost = "Podmeni sestevanje";
-
+                <div class="podmeniNaslov">Učenje</div>
+                <div class="podmeniNaslov">Zapis števil</div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('1a')">Enomestno</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('1b')">Dvomestno</button>
+                </div>
             }
-            else {
-                vrednost = "Podmeni drugo";
+            // Direktno racunanje
+            else if (urlParameter == "?i=2")
+            {
+                <div class="podmeniNaslov">Učenje</div>
+                <div class="podmeniNaslov">Direktno računanje</div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('2a')">Seštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('2b')">Odštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('2c')">Mešano</button>
+                </div>
+            }
+            // Mali prijatelj
+            else if (urlParameter == "?i=3")
+            {
+                <div class="podmeniNaslov">Učenje</div>
+                <div class="podmeniNaslov">Mali prijatelj</div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('3a')">Seštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('3b')">Odštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('3c')">Mešano</button>
+                </div>
+            }
+            // Veliki prijatelj
+            else if (urlParameter == "?i=4")
+            {
+                <div class="podmeniNaslov">Učenje</div>
+                <div class="podmeniNaslov">Veliki prijatelj</div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('4a')">Seštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('4b')">Odštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('4c')">Mešano</button>
+                </div>
+            }
+            // Kombinacija
+            else if (urlParameter == "?i=5")
+            {
+                <div class="podmeniNaslov">Učenje</div>
+                <div class="podmeniNaslov">Kombinacija</div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('5a')">Seštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('5b')">Odštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('5c')">Mešano</button>
+                </div>
+            }
+            // Množenje
+            else if (urlParameter == "?i=6")
+            {
+                <div class="podmeniNaslov">Učenje</div>
+                <div class="podmeniNaslov">Množenje</div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('6a')">Enomestno</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('6b')">Dvomestno</button>
+                </div>
+            }
+            // Deljenje
+            else if (urlParameter == "?i=7")
+            {
+                <div class="podmeniNaslov">Učenje</div>
+                <div class="podmeniNaslov">Deljenje</div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunAnimacije('7a')">Enomestno</button>
+                </div>
             }
         }
-        <span onclick='animacija()'>@vrednost</span>
-        <span id="test">7</span>
 
-    </div>
+    </div> <!-- col-xs-2 -->
     <div id="DivSvg" class="col-xs-7">
 
-    </div>
-
-    <div>
-
-    </div>
+    </div> <!-- col-xs-2 -->
     <div class="col-xs-3">
-        <span>Tukaj pridejo navodila za tutorial</span>
-    </div>
+        <div>
+            <b>Primer računa:</b>
+        </div>
+        <div id="racunUcenje"></div>
+    </div> <!-- col-xs-3 -->
 
 </div><!-- row -->
 

@@ -83,6 +83,7 @@ circle {
     fill: white;
 }
 
-
-
+.podmeniNaslov {
+    font-weight: bold;
+}
 

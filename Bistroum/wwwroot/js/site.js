@@ -116,7 +116,7 @@ function pritisk(event) {
 }
 
 // Ponastavi kroglice na zacetno pozicijo
-function reset() {
+function reset(meni) {
     for (var i = 1; i <= n; i++) {
         document.getElementById(10 * i + 5).setAttribute('cy', yUp);
         for (var j = 1; j <= 4; j++) {
@@ -125,7 +125,9 @@ function reset() {
     }
 
     // Izpise vrednost sorobana
-    document.getElementById("spanVrednostSorobana").innerHTML = vrednostSorobana();
+    if (meni=='vaje') {
+        document.getElementById("spanVrednostSorobana").innerHTML = vrednostSorobana();
+    }
 }
 
 
@@ -166,15 +168,21 @@ function generiranjeSorobana() {
 
 
 function poslusajDogodke() {
-    // Vsem td elementom dodeli event listener
+    // Vsem kroglicam elementom dodeli event listener
     var celice = document.querySelectorAll("ellipse");
     for (var i = 0; i < celice.length; i++) {
         celice[i].addEventListener("mousedown", pritisk);
     };
 
     // Za reset gumb
-    document.getElementById("resetGumb").addEventListener("mousedown", reset);
-    document.getElementById("resetTekst").addEventListener("mousedown", reset);
+    document.getElementById("resetGumb").addEventListener("mousedown", function () {
+        reset('vaje');
+    });
+    document.getElementById("resetTekst").addEventListener("mousedown", function () {
+        reset('vaje');
+    });
+
+    //document.getElementById("resetTekst").addEventListener("mousedown", reset);
 }
 
 

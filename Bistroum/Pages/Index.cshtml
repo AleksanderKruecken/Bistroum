@@ -7,7 +7,84 @@
 
 <div class="row">
     <div class="col-xs-2">
-        <span>Tu pride meni</span>
+        @{
+            string urlParameter = HttpContext.Request.QueryString.ToString();
+
+            // Zapis stevil
+            if (urlParameter == "?i=1")
+            {
+                <div class="podmeniNaslov">Vaje</div>
+                <div class="podmeniNaslov">Zapis števil</div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-default">Enomestno</button>
+                    <button type="button" class="btn btn-default">Dvomestno</button>
+                </div>
+            }
+            // Direktno racunanje
+            else if (urlParameter == "?i=2")
+            {
+                <div class="podmeniNaslov">Vaje</div>
+                <div class="podmeniNaslov">Direktno računanje</div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-default">Seštevanje</button>
+                    <button type="button" class="btn btn-default">Odštevanje</button>
+                    <button type="button" class="btn btn-default">Mešano</button>
+                </div>
+            }
+            // Mali prijatelj
+            else if (urlParameter == "?i=3")
+            {
+                <div class="podmeniNaslov">Vaje</div>
+                <div class="podmeniNaslov">Mali prijatelj</div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-default">Seštevanje</button>
+                    <button type="button" class="btn btn-default">Odštevanje</button>
+                    <button type="button" class="btn btn-default">Mešano</button>
+                </div>
+            }
+            // Veliki prijatelj
+            else if (urlParameter == "?i=4")
+            {
+                <div class="podmeniNaslov">Vaje</div>
+                <div class="podmeniNaslov">Veliki prijatelj</div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-default">Seštevanje</button>
+                    <button type="button" class="btn btn-default">Odštevanje</button>
+                    <button type="button" class="btn btn-default">Mešano</button>
+                </div>
+            }
+            // Kombinacija
+            else if (urlParameter == "?i=5")
+            {
+                <div class="podmeniNaslov">Vaje</div>
+                <div class="podmeniNaslov">Kombinacija</div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-default">Seštevanje</button>
+                    <button type="button" class="btn btn-default">Odštevanje</button>
+                    <button type="button" class="btn btn-default">Mešano</button>
+                </div>
+            }
+            // Množenje
+            else if (urlParameter == "?i=6")
+            {
+                <div class="podmeniNaslov">Vaje</div>
+                <div class="podmeniNaslov">Množenje</div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-default">Enomestno</button>
+                    <button type="button" class="btn btn-default">Dvomestno</button>
+                </div>
+            }
+            // Deljenje
+            else if (urlParameter == "?i=7")
+            {
+                <div class="podmeniNaslov">Vaje</div>
+                <div class="podmeniNaslov">Deljenje</div>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-default">Enomestno</button>
+                </div>
+            }
+        }
+
 
     </div>
     <div id="DivSvg" class="col-xs-7">

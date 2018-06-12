@@ -16,8 +16,8 @@
                 <div class="podmeniNaslov">Vaje</div>
                 <div class="podmeniNaslov">Zapis števil</div>
                 <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default">Enomestno</button>
-                    <button type="button" class="btn btn-default">Dvomestno</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('1a')">Enomestno</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('1b')">Dvomestno</button>
                 </div>
             }
             // Direktno racunanje
@@ -26,9 +26,9 @@
                 <div class="podmeniNaslov">Vaje</div>
                 <div class="podmeniNaslov">Direktno računanje</div>
                 <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default">Seštevanje</button>
-                    <button type="button" class="btn btn-default">Odštevanje</button>
-                    <button type="button" class="btn btn-default">Mešano</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('2a')">Seštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('2b')">Odštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('2c')">Mešano</button>
                 </div>
             }
             // Mali prijatelj
@@ -37,9 +37,9 @@
                 <div class="podmeniNaslov">Vaje</div>
                 <div class="podmeniNaslov">Mali prijatelj</div>
                 <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default">Seštevanje</button>
-                    <button type="button" class="btn btn-default">Odštevanje</button>
-                    <button type="button" class="btn btn-default">Mešano</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('3a')">Seštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('3b')">Odštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('3c')">Mešano</button>
                 </div>
             }
             // Veliki prijatelj
@@ -48,9 +48,9 @@
                 <div class="podmeniNaslov">Vaje</div>
                 <div class="podmeniNaslov">Veliki prijatelj</div>
                 <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default">Seštevanje</button>
-                    <button type="button" class="btn btn-default">Odštevanje</button>
-                    <button type="button" class="btn btn-default">Mešano</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('4a')">Seštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('4b')">Odštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('4c')">Mešano</button>
                 </div>
             }
             // Kombinacija
@@ -59,9 +59,9 @@
                 <div class="podmeniNaslov">Vaje</div>
                 <div class="podmeniNaslov">Kombinacija</div>
                 <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default">Seštevanje</button>
-                    <button type="button" class="btn btn-default">Odštevanje</button>
-                    <button type="button" class="btn btn-default">Mešano</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('5a')">Seštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('5b')">Odštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('5c')">Mešano</button>
                 </div>
             }
             // Množenje
@@ -70,8 +70,8 @@
                 <div class="podmeniNaslov">Vaje</div>
                 <div class="podmeniNaslov">Množenje</div>
                 <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default">Enomestno</button>
-                    <button type="button" class="btn btn-default">Dvomestno</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('6a')">Enomestno</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('6b')">Dvomestno</button>
                 </div>
             }
             // Deljenje
@@ -80,7 +80,7 @@
                 <div class="podmeniNaslov">Vaje</div>
                 <div class="podmeniNaslov">Deljenje</div>
                 <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default">Enomestno</button>
+                    <button type="button" class="btn btn-default" onclick="prikaziRacunVaje('7a')">Enomestno</button>
                 </div>
             }
         }
@@ -90,33 +90,22 @@
     <div id="DivSvg" class="col-xs-7">
 
     </div>
-    <div class="col-xs-1">
-            <span>Vrednost sorobana: </span>
-            <span id="spanVrednostSorobana"></span>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Izračunaj</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>38</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="col-xs-3">
+        <div>
+            <b>Izračunaj</b>
+        </div>
+        <div id="racunVaje"></div>
 
-    </div>
-    <div class="col-xs-2">
+        <br/>
+        <span>Vrednost sorobana: </span>
+        <span id="spanVrednostSorobana"></span>
 
-    </div>
+
+    </div><!-- col-xs-3 -->
+
 </div><!-- row -->
+
+
 
 
     <div class="row">

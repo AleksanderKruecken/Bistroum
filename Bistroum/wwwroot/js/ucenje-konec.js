@@ -35,13 +35,91 @@ async function animacija() {
 
 function prikaziRacunAnimacije(podmeni) {
     $("#racunUcenje").empty();
-    if (podmeni=='2a') {
-        $("#racunUcenje").append("1<br/>5<br/>1<br/>");
-        $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' > Animacija</button >");
+
+    if (podmeni == '1a') {
+        $("#racunUcenje").append("<p>V pripravi</p>");
+        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
     }
 
+    if (podmeni == '1b') {
+        $("#racunUcenje").append("<p>V pripravi</p>");
+        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+    }
 
-    
+    if (podmeni=='2a') {
+        $("#racunUcenje").append("1<br/>5<br/>1<br/>");
+        $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+    }
+
+    if (podmeni == '2b') {
+        $("#racunUcenje").append("<p>V pripravi</p>");
+        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+    }
+
+    if (podmeni == '2c') {
+        $("#racunUcenje").append("<p>V pripravi</p>");
+        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+    }
+
+    if (podmeni == '3a') {
+        $("#racunUcenje").append("<p>V pripravi</p>");
+        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+    }
+
+    if (podmeni == '3b') {
+        $("#racunUcenje").append("<p>V pripravi</p>");
+        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+    }
+
+    if (podmeni == '3c') {
+        $("#racunUcenje").append("<p>V pripravi</p>");
+        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+    }
+
+    if (podmeni == '4a') {
+        $("#racunUcenje").append("<p>V pripravi</p>");
+        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+    }
+
+    if (podmeni == '4b') {
+        $("#racunUcenje").append("<p>V pripravi</p>");
+        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+    }
+
+    if (podmeni == '4c') {
+        $("#racunUcenje").append("<p>V pripravi</p>");
+        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+    }
+
+    if (podmeni == '5a') {
+        $("#racunUcenje").append("<p>V pripravi</p>");
+        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+    }
+
+    if (podmeni == '5b') {
+        $("#racunUcenje").append("<p>V pripravi</p>");
+        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+    }
+
+    if (podmeni == '5c') {
+        $("#racunUcenje").append("<p>V pripravi</p>");
+        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+    }
+
+    if (podmeni == '6a') {
+        $("#racunUcenje").append("<p>V pripravi</p>");
+        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+    }
+
+    if (podmeni == '6b') {
+        $("#racunUcenje").append("<p>V pripravi</p>");
+        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+    }
+
+    if (podmeni == '7a') {
+        $("#racunUcenje").append("<p>V pripravi</p>");
+        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+    }
 }
 
 

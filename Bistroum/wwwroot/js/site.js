@@ -86,33 +86,13 @@ function pritisk(event) {
         else {
             // to so vse kroglice pod njo
             for (var i = stevilo; i <= 4; i++) {
-                //alert('izbrani krogec = ' + izbraniKrogec);
-                //alert('izbrano stevilo = ' + stevilo);
-                //alert('i = ' + i);
-                //alert('vrednost ' + (izbraniKrogec  + (i - stevilo)));
-                //alert('test ' + (11 + (1 - 1)));
-                //var indeks = i - stevilo;
-                //alert(indeks);
-                // izbraniKrogec + (i - stevilo) vraca napacen rezultat ker naredi string concatenate namesto sestevanje
-                // Resi s parseInt(izbranKrogec)
                 document.getElementById(izbraniKrogec - (stevilo - i)).setAttribute('cy', yStart + (i - 1) * yDiff);
-                //document.getElementById(11).setAttribute('cy', yStart + (i - 1) * yDiff);
-                //alert('konec');
             }
         }
     }
 
-
-    // Izpise id izbrane krogec
-    //document.getElementById("spanIzbraniKrogec").innerHTML = izbraniKrogec;
-
-    // Izpise vrednost izbranega krogca
-    //document.getElementById("spanVrednostKroglice").innerHTML = vrednostKroglice(izbraniKrogec);
-
     // Izpise vrednost sorobana
     document.getElementById("spanVrednostSorobana").innerHTML = vrednostSorobana();
-
-
 }
 
 // Ponastavi kroglice na zacetno pozicijo

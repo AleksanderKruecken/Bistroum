@@ -44,7 +44,6 @@ function direktnoRacunanjeSestevanje() {
     // Pocisti soroban
     reset('vaje');
 
-
     var i1 = izberiNakljucno(1, 3);
     var v1 = 0;
     if (Math.random() < 0.5) {
@@ -78,11 +77,9 @@ function direktnoRacunanjeSestevanje() {
     $("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
 
     var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
-    //$("#racunVaje").append("<button type='button' class='btn btn-default' onclick = 'preveriRezultat(sestevek)' >Preveri</button >");
     $("#racunVaje").append(racunVajeString);
 
 }
-
 
 
 function direktnoRacunanjeOdstevanje() {
@@ -92,7 +89,40 @@ function direktnoRacunanjeOdstevanje() {
     // Pocisti soroban
     reset('vaje');
 
-    $("#racunVaje").append("<p>V izdelavi</p>");
+    var i1 = izberiNakljucno(2, 4);
+    var v1 = 0;
+    if (Math.random() < 0.5) {
+        v1 = 5;
+    }
+
+    var stevilo1 = i1 + v1;
+
+    var i2 = izberiNakljucno(0, i1);
+    var v2 = 0;
+    if (v1 == 5) {
+        if (Math.random() < 0.5) {
+            v1 = 5;
+        }
+    }
+
+    var stevilo2 = i2 + v2;
+
+    var i3 = izberiNakljucno(0, i1 - i2);
+    var v3 = 0;
+    if ((v1 - v2) == 5) {
+        if (Math.random() < 0.5) {
+            v3 = 5;
+        }
+    }
+
+    var stevilo3 = i3 + v3;
+    var sestevek = stevilo1 - stevilo2 - stevilo3;
+
+    // Vstavi izracun v div
+    $("#racunVaje").append(stevilo1 + "<br/> -" + stevilo2 + "<br/>-" + stevilo3 + "<br/>");
+
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
+    $("#racunVaje").append(racunVajeString);
 }
 
 

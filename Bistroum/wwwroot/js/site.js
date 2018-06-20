@@ -4,8 +4,10 @@
 
     var y = document.getElementById(id).getAttribute('cy');
 
-    var stevilo = 0;
-    stevilo = id % 10;
+    // Vraca ostanek pri deljenju. Primer 25 % 10 vrne 5
+    // In tako ugotovi v kateri vrstici je
+    var stevilo = id % 10;
+    // Za kroglice v zgornji vrstici
     if (stevilo == 5) {
         if (y == yUp) {
             return 0;
@@ -14,42 +16,49 @@
             return 1;
         }
     }
+    // Za kroglice v spodnjih 4-ih vrsticah
     else {
+        // Preveri ali je y koordinata enaka tisti pri generiranju sorobana
         if (y == (yStart + (stevilo - 1) * yDiff)) {
             return 0;
-
         }
         else {
             return 1;
         }
-
     }
 }
 
 
 function vrednostKroglice(id) {
-    var stevilo = 0;
-    var eksponent = 1;
+    // Vraca ostanek pri deljenju. Primer 25%10 vrne 5
+    // In tako ugotovi v kateri vrstici je
+    var stevilo = id % 10;
+    // Celostevilsko deljenje.
+    // In tako ugotovi v katerem stolpcu je
+    // Vrne desetice. Npr. 25/10 = 2
+    var eksponent = Math.floor(id / 10); 
 
-    // Vraca ostanek pri deljenju. Primer 75%10 vrne 5
-    stevilo = id % 10;
-    // Celostevilsko deljenje. Primer: 75/10 vrne 7
-    eksponent = Math.floor(id / 10); 
-    
-    if ((stevilo < 5) && (stevilo > 1)) {
+    // Pogleda ali gre za kroglice v spodnjih 4-ih vrsticah in jim da najprej vrednost 1
+    if (stevilo < 5) {
         stevilo = 1;
     }
-    
+
+    // 1 ali 5 nato pomnozi s potenco števila 10 
     vrednost = Math.pow(10, eksponent - 1) * stevilo;
     
     return vrednost;
 }
 
+
 function vrednostSorobana() {
     var vsota = 0;
 
+    // Looping za kroglice petice (v zgornji vrstici od desne proti levi)
     for (var i = 1; i <= n; i++) {
+        // V oklepajih se izracuna id kroglice
+        // Ce je kroglica prestavljena, se vrednost kroglice mnozi z 1, sicer se vrednost kroglice mnozi z 0
         vsota += vrednostKroglice(i * 10 + 5) * polozajKroglice(i * 10 + 5);
+        // Looping za kroglice enice (vse kroglice v spodnjih 4-ih vrsticah)
         for (var j = 1; j <= 4; j++) {
             vsota += vrednostKroglice(i * 10 + j) * polozajKroglice(i * 10 + j);
         }
@@ -57,15 +66,18 @@ function vrednostSorobana() {
     return vsota;
 }
 
+
 function pritisk(event) {
     izbraniKrogec = event.target.id;
     izbraniKrogecString = "'" + izbraniKrogec + "'";
     izbraniGumb = event.button;
 
     // Krogce postavi na pravo pozicijo ob pritisku na dolocen krogec 
+    // Vrne ostanek pri deljenju z 10 in vrne na kateri y vrstici je uporabnik pritisnil kroglico
+    // Npr. 21%10 = 1
     var stevilo = izbraniKrogec % 10;
     var y = document.getElementById(izbraniKrogec).getAttribute('cy');
-    // premikamo zgornjo kroglico
+    // pogledamo ali je pritisnil zgornjo kroglico in jo nato premaknemo
     if (stevilo == 5) {  
         // kroglica je zgoraj in jo moramo prestaviti dol
         if (y == yUp) {
@@ -78,7 +90,9 @@ function pritisk(event) {
         // najprej preverimo ali je izbrana kroglica gor ali dol
         // kroglica je na zacetni poziciji in jo moramo prestaviti gor
         if (y == (yStart + (stevilo - 1) * yDiff)) {
-            for (var i = 1; i <= stevilo; i++) {  // to so vse kroglice nad njo
+            // Prestaviti moramo to kroglico in vse nad njo
+            // Npr. Ce je pritisnjena 3 vrstica, se prestavijo kroglice od 1. do 3. vrstice (24-3; 24-2; 24-1; 24-0
+            for (var i = 1; i <= stevilo; i++) { 
                 document.getElementById(izbraniKrogec - (stevilo - i)).setAttribute('cy', yStart + (i - 1) * yDiff - yDiff);
             }
         }
@@ -95,12 +109,16 @@ function pritisk(event) {
     document.getElementById("spanVrednostSorobana").innerHTML = vrednostSorobana();
 }
 
+
 // Ponastavi kroglice na zacetno pozicijo
 function reset(meni) {
+    // Looping za kroglice petice (v zgornji vrstici od desne proti levi)
+    // x koordinate ne rabimo spreminjati. Spreminjamo le y, ki ga nastavimo isto kot pri generiranju sorobana
     for (var i = 1; i <= n; i++) {
         document.getElementById(10 * i + 5).setAttribute('cy', yUp);
-        for (var j = 1; j <= 4; j++) {
-            document.getElementById(10 * i + j).setAttribute('cy', yStart + (j - 1) * yDiff);
+        // Looping za kroglice enice (narise vse kroglice v spodnjih 4-ih vrsticah)
+        for (var j = 1; j <= 4; j++) {            
+            document.getElementById(i * 10 + j).setAttribute('cy', yStart + (j - 1) * yDiff);
         }
     }
 
@@ -126,11 +144,11 @@ function generiranjeSorobana() {
     vrstice = vrstice + "<text id='resetTekst' x='507' y='28'>Ponastavi</text>";
     vrstice = vrstice + "<line id='sredinskaCrta' x1='0' y1='174' x2='600' y2='174' />";
 
-    // Looping za kroglice petice (narise vse krogce v zgornji vrstici)
+    // Looping za kroglice petice (narise vse krogce v zgornji vrstici od desne proti levi)
     for (var i = 1; i <= n; i++) {
         vrstice = vrstice + "<line class='okvir' x1='" + (xStart + (n - i) * xDiff) + "' y1='44' x2='" + (xStart + (n - i) * xDiff) + "' y2='490' />";
         vrstice = vrstice + "<ellipse id='" + (i * 10 + 5) + "' cx='" + (xStart + (n - i) * xDiff) + "' cy ='" + yUp + "' rx='" + aElipse + "' ry ='" + bElipse + "' />";
-        // Looping za kroglice enice (narise vse kroglice v spodnjih 4-ih vrsticah
+        // Looping za kroglice enice (narise vse kroglice v spodnjih 4-ih vrsticah)
         for (var j = 1; j <= 4; j++) {
             vrstice = vrstice + "<ellipse id='" + (i * 10 + j) + "' cx='" + (xStart + (n - i) * xDiff) + "' cy ='" + (yStart + (j - 1) * yDiff) + "' rx='" + aElipse + "' ry ='" + bElipse + "' />";
         }
@@ -144,7 +162,6 @@ function generiranjeSorobana() {
     $('#DivSvg').html(vrstice); 
 
 }
-
 
 
 function poslusajDogodke() {
@@ -166,8 +183,6 @@ function poslusajDogodke() {
 }
 
 
-
-
 // Globalne spremenljivke
 leviGumbKoda = 0;
 desniGumbKoda = 2;
@@ -177,11 +192,11 @@ xDiff = 110;
 // Razmik med krogci v enem stolpcu
 yDiff = 62;
 
-// Oddaljenost zgornjih krogcev od okvirja sorobana
+// Oddaljenost zgornjih krogcev od zgornjega okvirja sorobana
 yUp = 76;
-// Oddaljenost spodnjih krogcev od okvirja sorobana
+// Oddaljenost spodnjih krogcev od zgornjega okvirja sorobana
 yStart = 272;
-// Oddaljenost prvega stolpca od okvirja sorobana
+// Oddaljenost prvega stolpca od levega okvirja sorobana
 xStart = 80;
 
 // Dolzina krogca v sorobanu

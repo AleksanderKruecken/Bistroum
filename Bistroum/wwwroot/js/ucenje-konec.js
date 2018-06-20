@@ -3,17 +3,14 @@
 }
 
 
-async function animacija() {
-//    $("#15").append($.parseXML("<animate attributeType='XML' attributeName='cy' from='76' to='176' dur='10s' repeatCount='indefinite' />"));
-//    var element = document.getElementById("15");
-//    var para = document.createElement("animate");
-//    element.appendChild(para);
-//    $("#15").innerHTML("<animate attributeType='XML' attributeName='cy' from='76' to='176' dur='10s' repeatCount='indefinite' />");
+async function animacijaDirektnoSestevanje() {
+    // 1 + 5 + 1
 
     // Pocisti soroban
     reset('ucenje');
 
     // najprej prestavimo prvo enko
+    // 10 krat prestavi za desetino razlike; uporabljamo splosni (j-1)
     for (var i = 1; i <= 10; i++) {
         document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
         await sleep(100);
@@ -33,11 +30,13 @@ async function animacija() {
 } // animacija
 
 async function animacijaDirektnoOdstevanje() {
+    // 9 - 1 - 6
 
     // Pocisti soroban
     reset('ucenje');
 
     // najprej nastavimo 9
+    // 10 krat prestavi za desetino razlike; uporabljamo splosni (j-1)
     for (var i = 1; i <= 10; i++) {
         document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
         document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
@@ -62,11 +61,13 @@ async function animacijaDirektnoOdstevanje() {
 }
 
 async function animacijaDirektnoMesano() {
+    // 8 - 7 + 6
 
     // Pocisti soroban
     reset('ucenje');
 
     // najprej nastavimo 8
+    // 10 krat prestavi za desetino razlike; uporabljamo splosni (j-1)
     for (var i = 1; i <= 10; i++) {
         document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
         document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
@@ -92,11 +93,13 @@ async function animacijaDirektnoMesano() {
 }
 
 async function animacijaEnomestnoStevilo() {
+    // 7
 
     // Pocisti soroban
     reset('ucenje');
 
     // najprej nastavimo 7
+    // 10 krat prestavi za desetino razlike; uporabljamo splosni (j-1)
     for (var i = 1; i <= 10; i++) {
         document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
         document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
@@ -106,11 +109,13 @@ async function animacijaEnomestnoStevilo() {
 } 
 
 async function animacijaDvomestnoStevilo() {
+    // 82
 
     // Pocisti soroban
     reset('ucenje');
 
     // najprej nastavimo desetice na 8
+    // 10 krat prestavi za desetino razlike; uporabljamo splosni (j-1)
     for (var i = 1; i <= 10; i++) {
         document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
         document.getElementById(22).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
@@ -144,7 +149,7 @@ function prikaziRacunAnimacije(podmeni) {
 
     if (podmeni=='2a') {
         $("#racunUcenje").append("1<br/>5<br/>1<br/>");
-        $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+        $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaDirektnoSestevanje()' >Animacija</button >");
     }
 
     if (podmeni == '2b') {

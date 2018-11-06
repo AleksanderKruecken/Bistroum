@@ -144,6 +144,7 @@ async function animacijaMaliPrijateljSestevanje() {
         document.getElementById(14).setAttribute('cy', yStart + (4 - 1) * yDiff - yDiff * i / 10);
         await sleep(100);
     }
+    await sleep(1000);
     // pristejemo 5 in odstejemo 2
     for (var i = 1; i <= 10; i++) {
         document.getElementById(15).setAttribute('cy', yUp + yDiff * i / 10);
@@ -151,11 +152,7 @@ async function animacijaMaliPrijateljSestevanje() {
         document.getElementById(14).setAttribute('cy', yStart + (4 - 1) * yDiff - yDiff + yDiff * i / 10);
         await sleep(100);
     }
-
-
 }    
-
-
 
 async function animacijaMaliPrijateljOdstevanje() {
     // Pocisti soroban
@@ -167,14 +164,13 @@ async function animacijaMaliPrijateljOdstevanje() {
         document.getElementById(15).setAttribute('cy', yUp + yDiff * i / 10);
         await sleep(100);
     }
+    await sleep(1000);
     // odstejemo 5 in pristejmo 1
     for (var i = 1; i <= 10; i++) {
         document.getElementById(15).setAttribute('cy', yUp + yDiff - yDiff * i / 10);
         document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
         await sleep(100);
     }
-
-
 }   
 
 
@@ -207,9 +203,104 @@ async function animacijaMaliPrijateljMesano() {
         document.getElementById(14).setAttribute('cy', yStart + (4 - 1) * yDiff - yDiff + yDiff * i / 10);
         await sleep(100);
     }
-
-
 }   
+
+async function animacijaVelikiPrijateljSestevanje() {
+    // Pocisti soroban
+    reset('ucenje');
+    // 7+9
+    // najprej nastavimo stevilo 7
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(15).setAttribute('cy', yUp + yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // nato odstejemo -1 (=veliki prijatelj od 9)
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff + yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // na koncu dodamo 10
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+}
+
+async function animacijaVelikiPrijateljOdstevanje() {
+    // Pocisti soroban
+    reset('ucenje');
+    // 11-8
+    // najprej nastavimo desetice stevila 11
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+    // nato nastavimo enice stevila 11
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // odstejemo 10
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff + yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // pristejemo 2 (= veliki prijatelj od 8)
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(13).setAttribute('cy', yStart + (3 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+}
+
+async function animacijaVelikiPrijateljMesano() {
+    // Pocisti soroban
+    reset('ucenje');
+    // 16-7+9
+    // najprej nastavimo desetice stevila 16
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+    // nato nastavimo enice stevila 16
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(15).setAttribute('cy', yUp + yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // najprej odstejemo 10
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff + yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // nato pristejemo 3 (=veliki prijatelj od 7)
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(13).setAttribute('cy', yStart + (3 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(14).setAttribute('cy', yStart + (4 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // nato odstejmo 1 (= veliki prijatelj od 9)
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(14).setAttribute('cy', yStart + (4 - 1) * yDiff - yDiff + yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // na koncu pristejemo 10 
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+}
 
 
 
@@ -258,18 +349,18 @@ function prikaziRacunAnimacije(podmeni) {
     }
 
     if (podmeni == '4a') {
-        $("#racunUcenje").append("<p>V pripravi</p>");
-        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+        $("#racunUcenje").append("<p>7<br/>+9<br/></p>");
+        $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaVelikiPrijateljSestevanje()' >Animacija</button >");
     }
 
     if (podmeni == '4b') {
-        $("#racunUcenje").append("<p>V pripravi</p>");
-        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+        $("#racunUcenje").append("<p>11<br/>-8<br/></p>");
+        $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaVelikiPrijateljOdstevanje()' >Animacija</button >");
     }
 
     if (podmeni == '4c') {
-        $("#racunUcenje").append("<p>V pripravi</p>");
-        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+        $("#racunUcenje").append("<p>16<br/>-7<br/>+9<br/></p>");
+        $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaVelikiPrijateljMesano()' >Animacija</button >");
     }
 
     if (podmeni == '5a') {

@@ -406,6 +406,99 @@ async function animacijaObaPrijateljaMesano() {
     }
 }
 
+async function animacijaMnozenjeEnomestno() {
+    // Pocisti soroban
+    reset('ucenje');
+    // 37*5
+    // najprej izracunamo 3 * 5 in to vrednost prikazemo v deseticah in stoticah
+    // najprej 1 v stoticah
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(31).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+    // prikazemo se 5 od 15 v deseticah
+    await sleep(1000);
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(25).setAttribute('cy', yUp + yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+
+    // nato izracunamo 7 * 5 ter to pristejemo v enicah in deseticah
+    // najprej 3 v deseticah 
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(22).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(23).setAttribute('cy', yStart + (3 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // na koncu dodamo se 5 v enicah
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(15).setAttribute('cy', yUp + yDiff * i / 10);
+        await sleep(100);
+    }
+}
+
+async function animacijaMnozenjeDvomestno() {
+    // Pocisti soroban
+    reset('ucenje');
+    // 36*54
+    // najprej izracunamo 3 * 5 in to vrednost prikazemo v stoticah in tisocicah
+    // najprej 1 v tisocicah
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(41).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+    // prikazemo se 5 od 15 v stoticah
+    await sleep(1000);
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(35).setAttribute('cy', yUp + yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+
+    // nato izracunamo 3 * 4 ter to pristejemo v deseticah in stoticah
+    // najprej 1 v stoticah
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(31).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // in 2 v deseticah
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(22).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // nato izracunamo 6 * 5 in to pristejemo v deseticah in stoticah
+    // najprej 3 v stoticah
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(32).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(33).setAttribute('cy', yStart + (3 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(34).setAttribute('cy', yStart + (4 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // in 0 v deseticah  
+    // na koncu izracunamo se 6 * 4 in pristejemo v enicah in deseticah
+    // najprej 2 v deseticah
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(23).setAttribute('cy', yStart + (3 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(24).setAttribute('cy', yStart + (4 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // in 4 v enicah
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(13).setAttribute('cy', yStart + (3 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(14).setAttribute('cy', yStart + (4 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+}
 
 
 function prikaziRacunAnimacije(podmeni) {
@@ -482,13 +575,13 @@ function prikaziRacunAnimacije(podmeni) {
     }
 
     if (podmeni == '6a') {
-        $("#racunUcenje").append("<p>V pripravi</p>");
-        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+        $("#racunUcenje").append("<p>37*5<br/></p>");
+        $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaMnozenjeEnomestno()' >Animacija</button >");
     }
 
     if (podmeni == '6b') {
-        $("#racunUcenje").append("<p>V pripravi</p>");
-        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+        $("#racunUcenje").append("<p>36*54<br/></p>");
+        $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaMnozenjeDvomestno()' >Animacija</button >");
     }
 
     if (podmeni == '7a') {

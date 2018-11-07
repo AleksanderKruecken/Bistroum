@@ -350,7 +350,57 @@ function maliPrijateljMesano() {
     // Pocisti soroban
     reset('vaje');
 
-    $("#racunVaje").append("<p>V izdelavi</p>");
+    var i1 = 0;
+    var v1 = 0;
+    var i2 = 0;
+    var v2 = 0;
+    var i3 = 0;
+    var v3 = 0;
+    var stevilo1 = 0;
+    var stevilo2 = 0;
+    var stevilo3 = 0;
+
+    // Prva operacija bo sestevanje in nato odstevanje, obakrat z malim prijateljem
+    if (Math.random() < 0.5) {
+        // Nakljucno izberemo enice prvega stevila
+        i1 = izberiNakljucno(1, 4);
+        // zaradi sestevanja in prehoda cez 5, mora biti prva 5-ka 0
+        v1 = 0;
+        stevilo1 = i1 + v1;
+        // Drugo stevilo mora biti taksno, da je prehod preko 5 
+        i2 = izberiNakljucno(5 - i1, 4)
+        v2 = 0;
+        stevilo2 = i2 + v2;
+        // Tretje stevilo mora biti taksno, da je pri odstevanju prehod preko 5 
+        i3 = izberiNakljucno(i1 + i2 - 4, 4)
+        v3 = 0;
+        stevilo3 = - (i3 + v3);
+    }
+    // Random je vrnil odstevanje in zato imamo najprej odstevanje in nato sestevanje z malim prijateljem
+    else {
+        // Enice so lahko najvec 3, da lahko odstevamo z malim prijateljem
+        // Ne smemo imeti stevila 9
+        i1 = izberiNakljucno(0, 3);
+        // Da lahko ze takoj odstejemo, moramo imeti v prvem stevilu izbrano 5-ko
+        v1 = 5;
+        stevilo1 = i1 + v1;
+        // Drugo stevilo mora biti taksno, da je pri odstevanju prehod preko 5 
+        i2 = izberiNakljucno(stevilo1 - 4, 4)
+        v2 = 0;
+        stevilo2 = -(i2 + v2);
+        // Tretje stevilo mora biti taksno, da je pri sestevanju prehod preko 5 
+        i3 = izberiNakljucno(5 - (stevilo1 + stevilo2), 4)
+        v3 = 0;
+        stevilo3 = i3 + v3;
+    }
+
+    var sestevek = stevilo1 + stevilo2 + stevilo3;
+
+    // Vstavi izracun v div
+    $("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
+
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
+    $("#racunVaje").append(racunVajeString);
 }
 
 

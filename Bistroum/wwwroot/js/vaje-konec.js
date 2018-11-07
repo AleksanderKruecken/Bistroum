@@ -323,11 +323,12 @@ function maliPrijateljOdstevanje() {
     // V tem koraku se bo v vsakem primeru delal mali prijatelj
     if ((stevilo1 + stevilo2) > 4) {
         // izberemo tretje enice tako, da je vedno prehod cez 5 oz. da je njihova razlika manj kot 5 
-        i3 = izberiNakljucno((stevilo1 + i2) - 4, 4);
+        i3 = izberiNakljucno((stevilo1 + stevilo2) - 4, 4);
     }
     // V prvem racunu smo ze imeli prehod cez 5, zato moramo sedaj paziti, koliko se lahko odstejemo
     else {
-        i3 = izberiNakljucno(0, stevilo1 + stevilo2);    }
+        i3 = izberiNakljucno(0, stevilo1 + stevilo2);
+    }
     // zaradi prehoda cez 5 mora biti tretja petka vedno 0
     var v3 = 0;
 

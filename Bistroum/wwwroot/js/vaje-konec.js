@@ -303,7 +303,42 @@ function maliPrijateljOdstevanje() {
     // Pocisti soroban
     reset('vaje');
 
-    $("#racunVaje").append("<p>V izdelavi</p>");
+    // Izbira prvega stevila 
+    var i1 = izberiNakljucno(0, 4);
+    // Ker moramo imeti prehod cez 5, 5-ko moramo izbrati
+    var v1 = 5;
+    var stevilo1 = i1 + v1;
+
+    // Izbira drugega stevila
+    // Ne rabimo paziti pri enicah, ker imamo izbrano stevilo vsaj 5
+    // V tem koraku lahko pride do malega prijatelja (npr. 7-4) ali pa ne (npr. 7-2)
+    var i2 = izberiNakljucno(1, 4);
+    // Ker odstevamo in zelimo imeti prehod, 5-ke ne smemo odsteti
+    var v2 = 0;
+    var stevilo2 = - (i2 + v2);
+
+    // Izbira tretjega stevila
+    var i3 = 0;
+    // V prvem  racunu nismo imeli prehoda cez 5
+    // V tem koraku se bo v vsakem primeru delal mali prijatelj
+    if ((stevilo1 + stevilo2) > 4) {
+        // izberemo tretje enice tako, da je vedno prehod cez 5 oz. da je njihova razlika manj kot 5 
+        i3 = izberiNakljucno((stevilo1 + i2) - 4, 4);
+    }
+    // V prvem racunu smo ze imeli prehod cez 5, zato moramo sedaj paziti, koliko se lahko odstejemo
+    else {
+        i3 = izberiNakljucno(0, stevilo1 + stevilo2);    }
+    // zaradi prehoda cez 5 mora biti tretja petka vedno 0
+    var v3 = 0;
+
+    var stevilo3 = - (i3 + v3);
+    var sestevek = stevilo1 + stevilo2 + stevilo3;
+
+    // Vstavi izracun v div
+    $("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
+
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
+    $("#racunVaje").append(racunVajeString);
 }
 
 

@@ -500,6 +500,92 @@ async function animacijaMnozenjeDvomestno() {
     }
 }
 
+async function animacijaDeljenje() {
+    // Pocisti soroban
+    reset('ucenje');
+    // 632 : 8 = 79
+    // najprej si prikazemo stevilo 632 na sorobanu
+    // najprej 6 v stoticah
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(31).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(35).setAttribute('cy', yUp + yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // prikazemo se 3 od v deseticah
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(22).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(23).setAttribute('cy', yStart + (3 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // in prikazemo se 2 v enicah
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+
+    // nato izracunamo 63 : 8 ter rezultat 7 zapišemo
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(51).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(52).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(55).setAttribute('cy', yUp + yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // pocistimo stevilko 6 v 632
+    // najprej pocistimo 5
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(35).setAttribute('cy', yUp + yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // nato pocistimo se 1
+    for (i = 1; i <= 10; i++) {
+        document.getElementById(31).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff + yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+
+    // nastavimo 7 kot ostanek
+    for (i = 1; i <= 10; i++) {
+        document.getElementById(23).setAttribute('cy', yStart + (3 - 1) * yDiff - yDiff + yDiff * i / 10);
+        document.getElementById(25).setAttribute('cy', yUp + yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+
+    // pri racunu 63-56 smo dobili ostanek 7 ter tako ostane skupno stevilo 72
+    // to stevilo 72 delimo z 8 ter dobimo 9 in to prikazemo v rezultat
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(41).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(42).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(43).setAttribute('cy', yStart + (3 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(44).setAttribute('cy', yStart + (4 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(45).setAttribute('cy', yUp + yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // pocistimo 72
+    // najprej pocistimo 7
+    for (i = 1; i <= 10; i++) {
+        document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff + yDiff * i / 10);
+        document.getElementById(22).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff + yDiff * i / 10);
+        document.getElementById(25).setAttribute('cy', yUp + yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // in na koncu pocistimo se 2
+    for (i = 1; i <= 10; i++) {
+        document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff + yDiff * i / 10);
+        document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff + yDiff * i / 10);
+        await sleep(100);
+    }
+}
+
 
 function prikaziRacunAnimacije(podmeni) {
     $("#racunUcenje").empty();
@@ -585,8 +671,8 @@ function prikaziRacunAnimacije(podmeni) {
     }
 
     if (podmeni == '7a') {
-        $("#racunUcenje").append("<p>V pripravi</p>");
-        //$("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacija()' >Animacija</button >");
+        $("#racunUcenje").append("<p>632 : 8 = 79</p>");
+        $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaDeljenje()' >AnimacijaDeljenje</button >");
     }
 }
 

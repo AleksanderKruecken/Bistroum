@@ -536,14 +536,15 @@ function kombinacijaOdstevanje() {
     reset('vaje');
 
     // Glede na to, da je za kombinacijo precej manj moznosti, tukaj dolocim samo glede na mozen nabor
-    // Pri odstevanju so mozni samo spodnji primeri za kombinacijo obeh prijateljev:
+    // Pri odstevanju so mozni samo spodnji primeri za kombinacijo obeh prijateljev (velja tudi za stevila nad 20,30...):
     //  11 - {6}
     //  12 - {6, 7}
     //  13 - {6, 7, 8}
     //  14 - {6, 7, 8, 9}
 
-    // Odločil za okrnjeno 'random' funkcijo 21 - 24 da pri tretji številki ne rabim paziti na negativen rezultat
+    // Odločil za 'random' funkcijo 21 - 24 da pri tretji številki ne rabim paziti na negativen rezultat
     // Ker če bi vzel pri prvi še možnost 11 - 14 bi morali pri tretji številki dodatno paziti
+    // Poleg tega lahko pri stevilkah nad 20 dvakrat naredimo naključno odštevanje desetic
     var stevilo1 = izberiNakljucno(21, 24);
     var stevilo2 = 0;
 
@@ -561,6 +562,7 @@ function kombinacijaOdstevanje() {
     }
 
     // Ker ne moremo imeti dveh zaporednih odstevanj s kombinacijo obeh prijateljev, tretje stevilo izberemo nakljucno
+    // Prav tako ne rabimo paziti na negativen rezultat, ker je prva številka dovolj velika
     var stevilo3 = - izberiNakljucno(1, 9);
     var sestevek = stevilo1 + stevilo2 + stevilo3;
 
@@ -579,7 +581,93 @@ function kombinacijaMesano() {
     // Pocisti soroban
     reset('vaje');
 
-    $("#racunVaje").append("<p>V izdelavi</p>");
+    // Enako kot pri posameznem sestvanju in odstevanju, tudi tukaj upostevamo samo nabor moznih stevil
+    // Pri sestevanju so mozni samo spodnji primeri za kombinacijo obeh prijateljev:
+    //  5 + {6, 7, 8, 9}
+    //  6 + {6, 7, 8}
+    //  7 + {6, 7}
+    //  8 + {6}
+    // Pri odstevanju so mozni samo spodnji primeri za kombinacijo obeh prijateljev (velja tudi za stevila nad 20,30...):
+    //  11 - {6}
+    //  12 - {6, 7}
+    //  13 - {6, 7, 8}
+    //  14 - {6, 7, 8, 9}
+    var stevilo1 = 0;
+    var stevilo2 = 0;
+    var stevilo3 = 0;
+
+
+    // Prva operacija bo sestevanje in nato odstevanje, obakrat z obema prijateljema
+    if (Math.random() < 0.5) {
+        stevilo1 = izberiNakljucno(5, 8);
+        stevilo2 = 0;
+
+        if (stevilo1 == 5) {
+            stevilo2 = izberiNakljucno(6, 9);
+        }
+        else if (stevilo1 == 6) {
+            stevilo2 = izberiNakljucno(6, 8);
+        }
+        else if (stevilo1 == 7) {
+            stevilo2 = izberiNakljucno(6, 7);
+        }
+        else {
+            stevilo2 = 6;
+        }
+
+        // Druga operacija je odstevanje
+        if (((stevilo1 + stevilo2) % 10) == 4) {
+            stevilo3 = - izberiNakljucno(6, 9);
+        }
+        else if (((stevilo1 + stevilo2) % 10) == 3) {
+            stevilo3 = - izberiNakljucno(6, 8);
+        }
+        else if (((stevilo1 + stevilo2) % 10) == 2) {
+            stevilo3 = - izberiNakljucno(6, 7);
+        }
+        else {
+            stevilo3 = - 6;
+        }
+    }
+    else {
+        // Prva operacija je odstevanje in nato sestevanje
+        var stevilo1 = izberiNakljucno(11, 14);
+        var stevilo2 = 0;
+
+        if ((stevilo1 % 10) == 4) {
+            stevilo2 = - izberiNakljucno(6, 9);
+        }
+        else if ((stevilo1 % 10) == 3) {
+            stevilo2 = - izberiNakljucno(6, 8);
+        }
+        else if ((stevilo1 % 10) == 2) {
+            stevilo2 = - izberiNakljucno(6, 7);
+        }
+        else {
+            stevilo2 = - 6;
+        }
+
+        if ((stevilo1 + stevilo2) == 5) {
+            stevilo3 = izberiNakljucno(6, 9);
+        }
+        else if ((stevilo1 + stevilo2) == 6) {
+            stevilo3 = izberiNakljucno(6, 8);
+        }
+        else if ((stevilo1 + stevilo2) == 7) {
+            stevilo3 = izberiNakljucno(6, 7);
+        }
+        else {
+            stevilo3 = 6;
+        }
+    }
+
+    var sestevek = stevilo1 + stevilo2 + stevilo3;
+
+    // Vstavi izracun v div
+    $("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
+
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
+    $("#racunVaje").append(racunVajeString);
 }
 
 

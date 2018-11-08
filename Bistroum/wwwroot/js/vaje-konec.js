@@ -678,7 +678,16 @@ function mnozenjeEnomestno() {
     // Pocisti soroban
     reset('vaje');
 
-    $("#racunVaje").append("<p>V izdelavi</p>");
+    var stevilo1 = izberiNakljucno(10, 99);
+    var stevilo2 = izberiNakljucno(2, 9);
+
+    var zmnozek = stevilo1 * stevilo2;
+
+    // Vstavi izracun v div
+    $("#racunVaje").append(stevilo1 + " * " + stevilo2 + "<br/>");
+
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + zmnozek + ")' >Preveri</button >"
+    $("#racunVaje").append(racunVajeString);
 }
 
 

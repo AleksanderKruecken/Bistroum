@@ -411,7 +411,55 @@ function velikiPrijateljSestevanje() {
     // Pocisti soroban
     reset('vaje');
 
-    $("#racunVaje").append("<p>V izdelavi</p>");
+    // Izbira prvega stevila (lahko je od 1 od 9)
+    var i1 = izberiNakljucno(1, 4);
+    var v1 = 0;
+    if (Math.random() < 0.5) {
+        v1 = 5;
+    }
+    var stevilo1 = i1 + v1;
+
+    // Sestevanje z velikim prijateljem pomeni, da od prvega stevila odstejemo velikega prijatelja drugega stevila
+    // Npr. 6 + stevilo
+    // To stevilo mora biti taksno, da lahko od 6 odstejemo njegovega velikega prijatelja brez dodatnih prehodov
+    // Zato iz prvega stevila dolocimo, kaksen je lahko velik prijatelj, ki ga bomo na koncu odsteli
+    // Izbira drugega stevila
+    var velikPrijatelj = 0;
+    velikPrijatelj = izberiNakljucno(1, v1);
+    if (v1 == 5) {
+        if (Math.random() < 0.5) {
+            velikPrijatelj = velikPrijatelj + 5;
+        }
+    }
+
+    var stevilo2 = 10 - velikPrijatelj;
+    var stevilo3 = 0;
+
+    // Ce smo izbrali taksno drugo stevilo, da je vsota 10, potem pri drugem sestavanju ne moremo vec imeti velikega prijatelja
+    // Zato samo nakljucno izberemo poljubno stevilo
+    if (stevilo1 + stevilo2 == 10) {
+        stevilo3 = izberiNakljucno(1, 9);
+    }
+    else {
+        // Lahko izberemo se tretje stevilo tako, da bomo imeli prehod z velikim prijateljem
+        // Najprej izracunamo, kaksnega prijatelja sploh lahko odstejemo brez dodatnih prehodov    
+        var enke = (stevilo1 + stevilo2) % 5;
+        velikPrijatelj = izberiNakljucno(1, enke);
+        if (((stevilo1 + stevilo2) % 10) >= 5) {
+            if (Math.random() < 0.5) {
+                velikPrijatelj = velikPrijatelj + 5;
+            }
+        }
+        stevilo3 = 10 - velikPrijatelj;
+    }
+
+    var sestevek = stevilo1 + stevilo2 + stevilo3;
+
+    // Vstavi izracun v div
+    $("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
+
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
+    $("#racunVaje").append(racunVajeString);
 }
 
 
@@ -438,13 +486,45 @@ function velikiPrijateljMesano() {
 
 
 function kombinacijaSestevanje() {
+    // Uporabniku prikaze 3 stevila
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
 
     // Pocisti soroban
     reset('vaje');
 
-    $("#racunVaje").append("<p>V izdelavi</p>");
+    // Glede na to, da je za kombinacijo precej manj moznosti, tukaj dolocim samo glede na mozen nabor
+    // Pri sestevanju so mozni samo spodnji primeri za kombinacijo obeh prijateljev:
+    //  5 + {6, 7, 8, 9}
+    //  6 + {6, 7, 8}
+    //  7 + {6, 7}
+    //  8 + {6}
+
+    var stevilo1 = izberiNakljucno(5, 8);
+    var stevilo2 = 0;
+    if (stevilo1 == 5) {
+        stevilo2 = izberiNakljucno(6, 9);
+    }
+    else if (stevilo1 == 6) {
+        stevilo2 = izberiNakljucno(6, 8);
+    }
+    else if (stevilo1 == 7) {
+        stevilo2 = izberiNakljucno(6, 7);
+    }
+    else {
+        stevilo2 = 6;
+    }
+
+    // Ker ne moremo imeti dveh zaporednih sestevanj s kombinacijo obeh prijateljev (smo ze prenesli vrednost v desetice),
+    // tretje stevilo izberemo nakljucno
+    var stevilo3 = izberiNakljucno(1, 9);
+    var sestevek = stevilo1 + stevilo2 + stevilo3;
+
+    // Vstavi izracun v div
+    $("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
+
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
+    $("#racunVaje").append(racunVajeString);
 }
 
 

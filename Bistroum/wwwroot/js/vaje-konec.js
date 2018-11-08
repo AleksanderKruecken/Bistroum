@@ -542,7 +542,9 @@ function kombinacijaOdstevanje() {
     //  13 - {6, 7, 8}
     //  14 - {6, 7, 8, 9}
 
-    var stevilo1 = izberiNakljucno(11, 14);
+    // Odločil za okrnjeno 'random' funkcijo 21 - 24 da pri tretji številki ne rabim paziti na negativen rezultat
+    // Ker če bi vzel pri prvi še možnost 11 - 14 bi morali pri tretji številki dodatno paziti
+    var stevilo1 = izberiNakljucno(21, 24);
     var stevilo2 = 0;
 
     if ((stevilo1 % 10) == 4) {

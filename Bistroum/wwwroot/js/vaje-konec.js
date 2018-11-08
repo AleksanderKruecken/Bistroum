@@ -535,7 +535,38 @@ function kombinacijaOdstevanje() {
     // Pocisti soroban
     reset('vaje');
 
-    $("#racunVaje").append("<p>V izdelavi</p>");
+    // Glede na to, da je za kombinacijo precej manj moznosti, tukaj dolocim samo glede na mozen nabor
+    // Pri odstevanju so mozni samo spodnji primeri za kombinacijo obeh prijateljev:
+    //  11 - {6}
+    //  12 - {6, 7}
+    //  13 - {6, 7, 8}
+    //  14 - {6, 7, 8, 9}
+
+    var stevilo1 = izberiNakljucno(11, 14);
+    var stevilo2 = 0;
+
+    if ((stevilo1 % 10) == 4) {
+        stevilo2 = - izberiNakljucno(6, 9);
+    }
+    else if ((stevilo1 % 10) == 3) {
+        stevilo2 = - izberiNakljucno(6, 8);
+    }
+    else if ((stevilo1 % 10) == 2) {
+        stevilo2 = - izberiNakljucno(6, 7);
+    }
+    else {
+        stevilo2 = - 6;
+    }
+
+    // Ker ne moremo imeti dveh zaporednih odstevanj s kombinacijo obeh prijateljev, tretje stevilo izberemo nakljucno
+    var stevilo3 = - izberiNakljucno(1, 9);
+    var sestevek = stevilo1 + stevilo2 + stevilo3;
+
+    // Vstavi izracun v div
+    $("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
+
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
+    $("#racunVaje").append(racunVajeString);
 }
 
 

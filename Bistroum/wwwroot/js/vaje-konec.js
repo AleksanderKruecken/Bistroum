@@ -712,13 +712,24 @@ function mnozenjeDvomestno() {
 
 
 function deljenjeEnomestno() {
+    // Za izračun generira 2 ali 3 mestno število, ki ga je potrebno deliti z 1 mestnim številom
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
 
     // Pocisti soroban
     reset('vaje');
 
-    $("#racunVaje").append("<p>V izdelavi</p>");
+    var stevilo1 = izberiNakljucno(10, 99);
+    var stevilo2 = izberiNakljucno(2, 9);
+
+    // od 20 do 891
+    var zmnozek = stevilo1 * stevilo2;
+
+    // Vstavi izracun v div
+    $("#racunVaje").append(zmnozek + " : " + stevilo2 + "<br/>");
+
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + stevilo1 * 1000 + ")' >Preveri</button >"
+    $("#racunVaje").append(racunVajeString);
 }
 
 

@@ -405,6 +405,8 @@ function maliPrijateljMesano() {
 
 
 function velikiPrijateljSestevanje() {
+    // Uporabnik mora sesteti 3 stevila
+    // V obeh izracunih mora narediti velikega prijatelja, razen ce je ze v prvem racunu dobil rezultat 10
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
 
@@ -419,24 +421,24 @@ function velikiPrijateljSestevanje() {
     }
     var stevilo1 = i1 + v1;
 
-    // Sestevanje z velikim prijateljem pomeni, da od prvega stevila odstejemo velikega prijatelja drugega stevila
-    // Npr. 6 + stevilo
-    // To stevilo mora biti taksno, da lahko od 6 odstejemo njegovega velikega prijatelja brez dodatnih prehodov
-    // Zato iz prvega stevila dolocimo, kaksen je lahko velik prijatelj, ki ga bomo na koncu odsteli
     // Izbira drugega stevila
-    var velikPrijatelj = 0;
-    velikPrijatelj = izberiNakljucno(1, v1);
+    var velikPrijatelj = izberiNakljucno(1, i1);
     if (v1 == 5) {
+        // Random ali bomo odšteli tudi petice
         if (Math.random() < 0.5) {
             velikPrijatelj = velikPrijatelj + 5;
         }
     }
-
+    // Tukaj uporabniku povemo katero stevilo naj pristeje, da bo moral premakniti se desetico
+    // Ce je spodaj ena enica lahko pristeje le 10-1=9
+    // Ce sta spodaj dve enici lahko pristeje 10-2=8 ali 10-1=9
     var stevilo2 = 10 - velikPrijatelj;
-    var stevilo3 = 0;
 
-    // Ce smo izbrali taksno drugo stevilo, da je vsota 10, potem pri drugem sestavanju ne moremo vec imeti velikega prijatelja
+    // Izbira tretjega stevila
+    // Ce smo izbrali taksno drugo stevilo, da je vsota tocno 10
+    // potem pri drugem sestavanju ne moremo vec imeti velikega prijatelja (ker nimamo na razpolago enic)
     // Zato samo nakljucno izberemo poljubno stevilo
+    var stevilo3;
     if (stevilo1 + stevilo2 == 10) {
         stevilo3 = izberiNakljucno(1, 9);
     }
@@ -444,12 +446,23 @@ function velikiPrijateljSestevanje() {
         // Lahko izberemo se tretje stevilo tako, da bomo imeli prehod z velikim prijateljem
         // Najprej izracunamo, kaksnega prijatelja sploh lahko odstejemo brez dodatnih prehodov    
         var enke = (stevilo1 + stevilo2) % 5;
-        velikPrijatelj = izberiNakljucno(1, enke);
+        velikPrijatelj = izberiNakljucno(0, enke);
+        // Pogleda ali je zgoraj ostala se kaksna petka
         if (((stevilo1 + stevilo2) % 10) >= 5) {
+            // Random ali bomo odšteli tudi petice
             if (Math.random() < 0.5) {
                 velikPrijatelj = velikPrijatelj + 5;
             }
+            // Če smo slučajno izbrali 0 in smo imeli na razpolago 5, izberemo 5
+            if (velikPrijatelj == 0) {
+                velikPrijatelj = velikPrijatelj + 5;
+            }
         }
+
+        if (velikPrijatelj == 0) {
+            // Ga popravimo, da izbere vsaj 1, da ne bi stevilo3 bilo 10
+            velikPrijatelj = izberiNakljucno(1, enke);
+        }   
         stevilo3 = 10 - velikPrijatelj;
     }
 
@@ -464,13 +477,80 @@ function velikiPrijateljSestevanje() {
 
 
 function velikiPrijateljOdstevanje() {
+    // Uporabniku da dva izracuna in v obeh odstevanje velikega prijatelja, razen če v rezultatu prvega izracuna pride 19
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
 
     // Pocisti soroban
     reset('vaje');
 
-    $("#racunVaje").append("<p>V izdelavi</p>");
+    // Izbira prvega stevila
+    // Izberemo taksno prvo stevilo, da bomo lahko dvakrat odsteli z velikim prijateljem
+    var stevilo1 = izberiNakljucno(20, 28);
+
+    // Izbira drugega stevila
+    // Tukaj uporabniku povemo katero stevilo naj odsteje, da bo moral premakniti se desetico
+    // Pogleda koliko enic imamo spodaj
+    var enke = stevilo1 % 5;
+    // Pogledamo koliko enic lahko se maksimalno pristejemo glede na izbrano stevil
+    var velikPrijatelj = izberiNakljucno(0, 4 - enke);
+
+    // Ce se nimamo vrednosti 5, jo lahko dodamo ali pa ne
+    if ((stevilo1 % 10) < 5) {
+        if (Math.random() < 0.5) {
+            velikPrijatelj = velikPrijatelj + 5;
+        }
+    }
+    // Ce smo slucajno izbrali 0 za prijatelja, pogledamo ali lahko izberemo vsaj 1 ali vsaj 5
+    if (velikPrijatelj == 0) {
+        // Ce imamo proste 5-ke, lahko dodamo 5-ko
+        if ((stevilo1 % 10) < 5) {
+            velikPrijatelj = 5;
+        }
+        // Ce nimamo proste 5-ke, jo lahko dodamo zaradi izbora zacetnega stevila
+        else {
+            velikPrijatelj = izberiNakljucno(1, 4 - enke);
+        }
+    }
+    var stevilo2 = - (10 - velikPrijatelj);
+
+    // Izbira tretjega stevila
+    var stevilo3;
+    // Ce smo izbrali taksno drugo stevilo, da je razlika 19, potem izberemo poljubno stevilo in ga odstejemo brez vseh prehodov
+    if (stevilo1 + stevilo2 == 19) {
+        stevilo3 = - izberiNakljucno(1, 9);
+    }
+    else {
+        // Lahko izberemo se tretje stevilo tako, da ga lahko odstejemo z velikim prijateljem
+        // Najprej izracunamo, kaksnega prijatelja sploh lahko pristejemo brez dodatnih prehodov    
+        enke = (stevilo1 + stevilo2) % 5;
+        velikPrijatelj = izberiNakljucno(0, 4 - enke);
+        if (((stevilo1 + stevilo2) % 10) < 5) {
+            if (Math.random() < 0.5) {
+                velikPrijatelj = velikPrijatelj + 5;
+            }
+        }
+        // Ce smo slucajno izbrali 0 za prijatelja, pogledamo ali lahko izberemo vsaj 1 ali vsaj 5
+        if (velikPrijatelj == 0) {
+            // Ce imamo proste 5-ke, lahko dodamo 5-ko
+            if (((stevilo1 + stevilo2) % 10) < 5) {
+                velikPrijatelj = 5;
+            }
+            // Ce nimamo proste 5-ke, je lahko dodamo, ker sigurno nimamo vmesnega rezultata 19
+            else {
+                velikPrijatelj = izberiNakljucno(1, 4 - enke);
+            }
+        }
+        stevilo3 = - (10 - velikPrijatelj);
+    }
+
+    var sestevek = stevilo1 + stevilo2 + stevilo3;
+
+    // Vstavi izracun v div
+    $("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
+
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
+    $("#racunVaje").append(racunVajeString);
 }
 
 

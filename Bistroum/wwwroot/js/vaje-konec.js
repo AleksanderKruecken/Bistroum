@@ -555,13 +555,135 @@ function velikiPrijateljOdstevanje() {
 
 
 function velikiPrijateljMesano() {
+    // Naredita se dve operaciji. V random se izbere ali bo najprej sestevanje ali odstevanje
+    // Ce je prva operacija sestevanje, bo druga odstevanje (in obratno)
+
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
 
     // Pocisti soroban
     reset('vaje');
 
-    $("#racunVaje").append("<p>V izdelavi</p>");
+    var stevilo1;
+    var stevilo2;
+    var stevilo3;
+    var enke;
+    var velikPrijatelj;
+    
+    // Random je vrnil najprej sestevanje z velikim prijateljem in zatem odstevanje z velikim prijateljem
+    if (Math.random() < 0.5) {
+
+        // Izbira prvega stevila
+        stevilo1 = izberiNakljucno(1, 9);
+
+        // Izbira drugega stevila
+        // Drugo stevilo mora biti taksno, da lahko od prvega odstejemo njegovega velikega prijatelja
+        enke = stevilo1 % 5;
+        velikPrijatelj = izberiNakljucno(0, enke);
+        if ((stevilo1 % 10) >= 5) {
+            if (Math.random() < 0.5) {
+                velikPrijatelj = velikPrijatelj + 5;
+            }
+        }
+
+        // Ce smo slucajno nakljucno izbrali 0, ga popravimo
+        if (velikPrijatelj == 0) {
+            if ((stevilo1 % 10) >= 5) {
+                velikPrijatelj = 5;
+            }
+            else {
+                velikPrijatelj = izberiNakljucno(1, enke);
+            }
+        }    
+
+        stevilo2 = 10 - velikPrijatelj;
+
+        // Izbira tretjega stevila
+        // Druga operacija je odstevanje z velikim prijateljem
+        // Izracunamo, kaksnega prijatelja lahko sedaj pristejemo brez prehoda
+        enke = (stevilo1 + stevilo2) % 5;
+        velikPrijatelj = izberiNakljucno(0, 4 - enke);
+        if (((stevilo1 + stevilo2) % 10) < 5) {
+            if (Math.random() < 0.5) {
+                velikPrijatelj = velikPrijatelj + 5;
+            }
+        }
+        // Ce smo slucajno izbrali 0 za prijatelja, pogledamo ali lahko izberemo vsaj 1 ali vsaj 5
+        if (velikPrijatelj == 0) {
+            // Ce imamo proste 5-ke, lahko dodamo 5-ko
+            if (((stevilo1 + stevilo2) % 10) < 5) {
+                velikPrijatelj = 5;
+            }
+            // Ce nimamo proste 5-ke, je lahko dodamo, ker sigurno nimamo vmesnega rezultata 19
+            else {
+                velikPrijatelj = izberiNakljucno(1, 4 - enke);
+            }
+        }
+        stevilo3 = - (10 - velikPrijatelj);
+    }
+    // Random je vrnil najprej odstevanje z velikim prijateljem in zatem sestevanje z velikim prijateljem
+    else {
+        // Izbira prvega stevila
+        // Izberemo prvo stevilo tako, da lahko od njega odstejemo stevilo z velikim prijateljem
+        stevilo1 = izberiNakljucno(10, 18);
+
+        // Izbira drugega stevila
+        velikPrijatelj = 0;
+        enke = stevilo1 % 5;
+        // Izberemo lahko samo do stirih enk
+        velikPrijatelj = izberiNakljucno(0, 4 - enke);
+
+        // Ce se nimamo vrednosti 5, jo lahko dodamo
+        if ((stevilo1 % 10) < 5) {
+            if (Math.random() < 0.5) {
+                velikPrijatelj = velikPrijatelj + 5;
+            }
+        }
+
+        // Ce smo slucajno izbrali 0 za prijatelja, pogledamo ali lahko izberemo vsaj 1 ali vsaj 5
+        if (velikPrijatelj == 0) {
+            // Ce imamo proste 5-ke, lahko dodamo 5-ko
+            if ((stevilo1 % 10) < 5) {
+                velikPrijatelj = 5;
+            }
+            // Ce nimamo proste 5-ke, jo lahko dodamo zaradi izbora zacetnega stevila
+            else {
+                velikPrijatelj = izberiNakljucno(1, 4 - enke);
+            }
+        }
+
+        stevilo2 = - (10 - velikPrijatelj);
+
+
+        // Izbira tretjega stevila
+        // Druga operacija je sestevanje z velikim prijateljem
+        // Izracunati moramo, kaksnega velikega prijatelja lahko odstejemo od trenutnega rezultata
+        enke = (stevilo1 + stevilo2) % 5;
+        velikPrijatelj = izberiNakljucno(0, enke);
+        if (((stevilo1 + stevilo2) % 10) >= 5) {
+            if (Math.random() < 0.5) {
+                velikPrijatelj = velikPrijatelj + 5;
+            }
+        }
+        // Ce smo slucajno izbrali 0 za prijatelja, ga popravimo
+        if (velikPrijatelj == 0) {
+            if (((stevilo1 + stevilo2) % 10) >= 5) {
+                velikPrijatelj = 5;
+            }
+            else {
+                velikPrijatelj = izberiNakljucno(1, enke);
+            }
+        }
+        stevilo3 = 10 - velikPrijatelj;
+    }
+
+    var sestevek = stevilo1 + stevilo2 + stevilo3;
+
+    // Vstavi izracun v div
+    $("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
+
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
+    $("#racunVaje").append(racunVajeString);
 }
 
 

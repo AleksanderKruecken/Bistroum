@@ -7,13 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Bistroum.Pages
 {
-    public class BistroumModel : PageModel
+    public class ZgradbaModel : PageModel
     {
-        public string Message { get; set; }
-
         public void OnGet()
         {
-            Message = "Zgodovina sorobana";
+
         }
     }
 }

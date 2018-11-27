@@ -33,7 +33,17 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a asp-page="/Soroban">Soroban</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" role="button" data-toggle="dropdown">Soroban<span class="caret" /></a>
+                            <ul class="dropdown-menu">
+                                <li><a asp-page="/Predstavitev">Predstavitev</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a asp-page="/Zgodovina">Zgodovina</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a asp-page="/Zgradba">Zgradba</a></li>
+                            </ul>
+                        </li>
+
                         <li class="dropdown">
                             <a class="dropdown-toggle" role="button" data-toggle="dropdown" asp-page="/Index">Učenje<span class="caret" /></a>
                             <ul class="dropdown-menu">
@@ -51,7 +61,6 @@
                                 <li role="separator" class="divider"></li>
                                 <li><a href="/Ucenje?i=7">Deljenje</a></li>
                             </ul>
-
                         </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" role="button" data-toggle="dropdown" asp-page="/Index">Vaje<span class="caret" /></a>

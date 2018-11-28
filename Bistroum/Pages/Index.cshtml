@@ -20,15 +20,15 @@
                     <button type="button" class="btn btn-default" onclick="zapisStevilDvomestno()">Dvomestno</button>
                 </div>
             }
-            // Direktno racunanje
+            // Brez prijatelja
             else if (urlParameter == "?i=2")
             {
                 <div class="podmeniNaslov">Vaje</div>
-                <div class="podmeniNaslov">Direktno računanje</div>
+                <div class="podmeniNaslov">Brez prijatelja</div>
                 <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default" onclick="direktnoRacunanjeSestevanje()">Seštevanje</button>
-                    <button type="button" class="btn btn-default" onclick="direktnoRacunanjeOdstevanje()">Odštevanje</button>
-                    <button type="button" class="btn btn-default" onclick="direktnoRacunanjeMesano()">Mešano</button>
+                    <button type="button" class="btn btn-default" onclick="brezPrijateljaSestevanje()">Seštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="brezPrijateljaOdstevanje()">Odštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="brezPrijateljaMesano()">Mešano</button>
                 </div>
             }
             // Mali prijatelj
@@ -53,15 +53,15 @@
                     <button type="button" class="btn btn-default" onclick="velikiPrijateljMesano()">Mešano</button>
                 </div>
             }
-            // Kombinacija
+            // Oba prijatelja
             else if (urlParameter == "?i=5")
             {
                 <div class="podmeniNaslov">Vaje</div>
-                <div class="podmeniNaslov">Kombinacija</div>
+                <div class="podmeniNaslov">Oba prijatelja</div>
                 <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default" onclick="kombinacijaSestevanje()">Seštevanje</button>
-                    <button type="button" class="btn btn-default" onclick="kombinacijaOdstevanje()">Odštevanje</button>
-                    <button type="button" class="btn btn-default" onclick="kombinacijaMesano()">Mešano</button>
+                    <button type="button" class="btn btn-default" onclick="obaPrijateljaSestevanje()">Seštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="obaPrijateljaOdstevanje()">Odštevanje</button>
+                    <button type="button" class="btn btn-default" onclick="obaPrijateljaMesano()">Mešano</button>
                 </div>
             }
             // Množenje

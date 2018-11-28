@@ -3,7 +3,7 @@
 }
 
 
-async function animacijaDirektnoSestevanje() {
+async function animacijaBrezPrijateljaSestevanje() {
     // 1 + 5 + 1
 
     // Pocisti soroban
@@ -29,7 +29,7 @@ async function animacijaDirektnoSestevanje() {
     }
 } // animacija
 
-async function animacijaDirektnoOdstevanje() {
+async function animacijaBrezPrijateljaOdstevanje() {
     // 9 - 1 - 6
 
     // Pocisti soroban
@@ -60,7 +60,7 @@ async function animacijaDirektnoOdstevanje() {
     }
 }
 
-async function animacijaDirektnoMesano() {
+async function animacijaBrezPrijateljaMesano() {
     // 8 - 7 + 6
 
     // Pocisti soroban
@@ -602,17 +602,17 @@ function prikaziRacunAnimacije(podmeni) {
 
     if (podmeni=='2a') {
         $("#racunUcenje").append("1<br/>5<br/>1<br/>");
-        $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaDirektnoSestevanje()' >Animacija</button >");
+        $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaBrezPrijateljaSestevanje()' >Animacija</button >");
     }
 
     if (podmeni == '2b') {
         $("#racunUcenje").append("9<br/>-1<br/>-6<br/>");
-        $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaDirektnoOdstevanje()' >Animacija</button >");
+        $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaBrezPrijateljaOdstevanje()' >Animacija</button >");
     }
 
     if (podmeni == '2c') {
         $("#racunUcenje").append("8<br/>-7<br/>6<br/>");
-        $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaDirektnoMesano()' >Animacija</button >");
+        $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaBrezPrijateljaMesano()' >Animacija</button >");
     }
 
     if (podmeni == '3a') {

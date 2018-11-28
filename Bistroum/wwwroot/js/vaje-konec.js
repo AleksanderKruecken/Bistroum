@@ -51,7 +51,7 @@ function zapisStevilDvomestno() {
 }
 
 // Racunanje brez prehoda cez 5 ali 10
-function direktnoRacunanjeSestevanje() {
+function brezPrijateljaSestevanje() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
 
@@ -106,7 +106,7 @@ function direktnoRacunanjeSestevanje() {
 }
 
 
-function direktnoRacunanjeOdstevanje() {
+function brezPrijateljaOdstevanje() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
 
@@ -161,7 +161,7 @@ function direktnoRacunanjeOdstevanje() {
 }
 
 
-function direktnoRacunanjeMesano() {
+function brezPrijateljaMesano() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
 
@@ -687,7 +687,7 @@ function velikiPrijateljMesano() {
 }
 
 
-function kombinacijaSestevanje() {
+function obaPrijateljaSestevanje() {
     // Uporabniku prikaze 3 stevila
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
@@ -730,7 +730,7 @@ function kombinacijaSestevanje() {
 }
 
 
-function kombinacijaOdstevanje() {
+function obaPrijateljaOdstevanje() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
 
@@ -776,7 +776,7 @@ function kombinacijaOdstevanje() {
 }
 
 
-function kombinacijaMesano() {
+function obaPrijateljaMesano() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
 

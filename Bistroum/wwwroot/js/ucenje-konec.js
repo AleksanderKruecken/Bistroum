@@ -123,6 +123,7 @@ async function animacijaDvomestnoStevilo() {
         document.getElementById(25).setAttribute('cy', yUp + yDiff * i / 10);
         await sleep(100);
     }
+    await sleep(1000);
     // natop nastavimo enice na 2
     for (var i = 1; i <= 10; i++) {
         document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
@@ -588,6 +589,9 @@ async function animacijaDeljenje() {
 
 
 function prikaziRacunAnimacije(podmeni) {
+    // Pocisti soroban
+    reset('ucenje');
+
     $("#racunUcenje").empty();
 
     if (podmeni == '1a') {
@@ -678,3 +682,4 @@ function prikaziRacunAnimacije(podmeni) {
 
 
 generiranjeSorobana();
+poslusajDogodkeUcenje();

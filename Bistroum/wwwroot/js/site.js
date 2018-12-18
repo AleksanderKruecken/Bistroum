@@ -182,6 +182,18 @@ function poslusajDogodke() {
     //document.getElementById("resetTekst").addEventListener("mousedown", reset);
 }
 
+function poslusajDogodkeUcenje() {
+    // Za reset gumb
+    document.getElementById("resetGumb").addEventListener("mousedown", function () {
+        reset('ucenje');
+    });
+    document.getElementById("resetTekst").addEventListener("mousedown", function () {
+        reset('ucenje');
+    });
+
+    //document.getElementById("resetTekst").addEventListener("mousedown", reset);
+}
+
 
 // Globalne spremenljivke
 leviGumbKoda = 0;

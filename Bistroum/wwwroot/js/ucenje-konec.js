@@ -2,6 +2,46 @@
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+async function animacijaEnomestnoStevilo() {
+    // 7
+
+    // Pocisti soroban
+    reset('ucenje');
+
+    // najprej nastavimo 7
+    // 10 krat prestavi za desetino razlike; uporabljamo splosni (j-1)
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(15).setAttribute('cy', yUp + yDiff * i / 10);
+        await sleep(100);
+    }
+}
+
+async function animacijaDvomestnoStevilo() {
+    // 82
+
+    // Pocisti soroban
+    reset('ucenje');
+
+    // najprej nastavimo desetice na 8
+    // 10 krat prestavi za desetino razlike; uporabljamo splosni (j-1)
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(22).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(23).setAttribute('cy', yStart + (3 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(25).setAttribute('cy', yUp + yDiff * i / 10);
+        await sleep(100);
+    }
+    await sleep(1000);
+    // natop nastavimo enice na 2
+    for (var i = 1; i <= 10; i++) {
+        document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
+        document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
+        await sleep(100);
+    }
+
+} 
 
 async function animacijaBrezPrijateljaSestevanje() {
     // 1 + 5 + 1
@@ -92,47 +132,6 @@ async function animacijaBrezPrijateljaMesano() {
     }
 }
 
-async function animacijaEnomestnoStevilo() {
-    // 7
-
-    // Pocisti soroban
-    reset('ucenje');
-
-    // najprej nastavimo 7
-    // 10 krat prestavi za desetino razlike; uporabljamo splosni (j-1)
-    for (var i = 1; i <= 10; i++) {
-        document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
-        document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
-        document.getElementById(15).setAttribute('cy', yUp + yDiff * i / 10);
-        await sleep(100);
-    }
-} 
-
-async function animacijaDvomestnoStevilo() {
-    // 82
-
-    // Pocisti soroban
-    reset('ucenje');
-
-    // najprej nastavimo desetice na 8
-    // 10 krat prestavi za desetino razlike; uporabljamo splosni (j-1)
-    for (var i = 1; i <= 10; i++) {
-        document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
-        document.getElementById(22).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
-        document.getElementById(23).setAttribute('cy', yStart + (3 - 1) * yDiff - yDiff * i / 10);
-        document.getElementById(25).setAttribute('cy', yUp + yDiff * i / 10);
-        await sleep(100);
-    }
-    await sleep(1000);
-    // natop nastavimo enice na 2
-    for (var i = 1; i <= 10; i++) {
-        document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
-        document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
-        await sleep(100);
-    }
-
-} 
-
 async function animacijaMaliPrijateljSestevanje() {
     // Pocisti soroban
     reset('ucenje');
@@ -173,8 +172,6 @@ async function animacijaMaliPrijateljOdstevanje() {
         await sleep(100);
     }
 }   
-
-
 
 async function animacijaMaliPrijateljMesano() {
     // Pocisti soroban
@@ -240,6 +237,7 @@ async function animacijaVelikiPrijateljOdstevanje() {
         document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
         await sleep(100);
     }
+    await sleep(1000);
     // nato nastavimo enice stevila 11
     for (var i = 1; i <= 10; i++) {
         document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
@@ -269,6 +267,7 @@ async function animacijaVelikiPrijateljMesano() {
         document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
         await sleep(100);
     }
+    await sleep(1000);
     // nato nastavimo enice stevila 16
     for (var i = 1; i <= 10; i++) {
         document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
@@ -338,7 +337,7 @@ async function animacijaObaPrijateljaOdstevanje() {
         document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
         await sleep(100);
     }
-
+    await sleep(1000);
     // nato nastavimo enice stevila 14
     for (var i = 1; i <= 10; i++) {
         document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
@@ -371,6 +370,7 @@ async function animacijaObaPrijateljaMesano() {
         document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
         await sleep(100);
     }
+    await sleep(1000);
     // nato nastavimo enice stevila 13
     for (var i = 1; i <= 10; i++) {
         document.getElementById(11).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);

@@ -597,31 +597,45 @@ function prikaziRacunAnimacije(podmeni) {
     if (podmeni == '1a') {
         $("#racunUcenje").append("<p>7</p>");
         $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaEnomestnoStevilo()' >Animacija</button >");
+        $("#ucenjeDescription").text("Če so vse kroglice nad osrednjo prečko premaknjene navzgor, kroglice pod prečko pa navzdol je prikazano število 0. Palica čisto na desni predstavlja enice.Vsaka od štirih kroglic, ki se nahajajo pod osrednjo prečko ima vrednost 1, medtem ko ima kroglica nad osrednjo prečko vrednost 5. Če katero od teh kroglic premaknemo k osrednji prečki, se število na sorobanu poveča za to vrednost.");
+        $("#ucenjeDescriptionAdditional").text("Število 7 zapišemo tako, da k osrednji  prečki premaknemo petico in dve enici.");
     }
 
     if (podmeni == '1b') {
         $("#racunUcenje").append("<p>82</p>");
         $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaDvomestnoStevilo()' >Animacija</button >");
+        $("#ucenjeDescription").text("Druga palica z desne proti levi predstavlja desetice. Vsaka od štirih kroglic, ki se nahajajo pod osrednjo prečko ima vrednost 10, medtem ko ima kroglica nad osrednjo prečko vrednost 50. Če katero od teh kroglic premaknemo, k osrednji prečki, se število na sorobanu poveča za to vrednost.");
+        $("#ucenjeDescriptionAdditional").text("Število 82 zapišemo tako, da na palici z deseticami k osrednji  prečki premaknemo petico in tri enice. Nato pa na palici z enicami k osrednji prečki premaknemo še dve enici.");
     }
 
     if (podmeni=='2a') {
         $("#racunUcenje").append("1<br/>5<br/>1<br/>");
         $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaBrezPrijateljaSestevanje()' >Animacija</button >");
+        $("#ucenjeDescription").text("Števila seštevamo tako, da na soroban najprej zapišemo prvo število, nato pa mu prištejemo še ostala števila.");
+        $("#ucenjeDescriptionAdditional").text("Število 1 zapišemo tako, da na palici skrajno desno (predstavlja enice) k osrednji prečki premaknemo eno enico. Zatem prištejemo število 5 tako, da k osrednji prečki premaknemo petico. Na koncu prištejemo število 1 tako, da k osrednji prečki premaknemo še eno enico.");
     }
 
     if (podmeni == '2b') {
         $("#racunUcenje").append("9<br/>-1<br/>-6<br/>");
         $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaBrezPrijateljaOdstevanje()' >Animacija</button >");
+        $("#ucenjeDescription").text("Števila odštevamo tako, da na soroban najprej zapišemo prvo število, nato pa mu odštejemo še ostala števila.");
+        $("#ucenjeDescriptionAdditional").text("Število 9 zapišemo tako, da na palici skrajno desno (predstavlja enice) k osrednji prečki premaknemo petico in štiri enice. Zatem odštejemo število 1 tako, da  od osrednje prečke odmaknemo eno enico. Na koncu odštejemo še število 6 tako, da od osrednje prečke odmaknemo petico in eno enico.");
+
     }
 
     if (podmeni == '2c') {
         $("#racunUcenje").append("8<br/>-7<br/>6<br/>");
         $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaBrezPrijateljaMesano()' >Animacija</button >");
+        $("#ucenjeDescription").text("Števila prištevamo in odštevamo tako, da na soroban najprej zapišemo prvo število, nato pa mu prištejemo ter odštejemo še ostala števila.");
+        $("#ucenjeDescriptionAdditional").text("Število 8 zapišemo tako, da na palici skrajno desno (predstavlja enice) k osrednji prečki premaknemo petico in tri enice. Zatem odštejemo število 7 tako, da od osrednje prečke odmaknemo petico in dve enici. Na koncu prištejemo še število 6 tako, da k osrednji prečki premaknemo petico in eno enico.");
+
     }
 
     if (podmeni == '3a') {
         $("#racunUcenje").append("4<br/>3<br/>");
         $("#racunUcenje").append("<button type='button' class='btn btn-default' onclick = 'animacijaMaliPrijateljSestevanje()' >Animacija</button >");
+        $("#ucenjeDescription").text("Pri seštevanju se nam lahko zgodi, da imamo prehod preko osrednje prečke, kar se imenuje mali prijatelj (v tujini se uporablja izraz little friend ali partner). Tak prehod se nam zgodi takrat, ko imamo pod osrednjo prečko premalo prostih kroglic, z vrednostjo 1. Pri čemer pa smo še vedno na istem stolpcu in kroglic sosednjih stolpcev ne potrebujemo. V tem primeru si vedno pomagamo s kroglico vrednosti 5, ki se nahaja nad osrednjo prečko. Da poiščemo številu njegovega malega prijatelja, izračunamo, koliko temu številu manjka do vrednosti 5. Za število 1 je mali prijatelj 4, za število 2 je mali prijatelj 3, za število 3 je mali prijatelj 2 in za število 4 je mali prijatelj 1. Pri seštevanju kjer moramo uporabiti malega prijatelja, to naredimo tako, da prištejemo vrednost 5 ter odštejemo vrednost malega prijatelja.");
+        $("#ucenjeDescriptionAdditional").text("Število 4 zapišemo tako, da na palici skrajno desno (predstavlja enice) k osrednji prečki premaknemo štiri enice. Zatem prištejemo število 3 tako, da uporabimo malega prijatelja. Mali prijatelj števila 3 je število 2 (5-3=2). Število 3 torej prištejemo tako, da k osrednji prečki premaknemo petico in od srednje prečke odmaknemo dve enici. Pri tem na sorobanu dobimo končni rezultat 7.");
     }
 
     if (podmeni == '3b') {

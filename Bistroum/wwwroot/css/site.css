@@ -87,3 +87,11 @@ circle {
     font-weight: bold;
 }
 
+#pravilnoNepravilno {
+    font-weight: bold;
+    color: black;
+}
+
+#ucenjeDescriptionAdditional {
+    padding-top: 15px;
+}

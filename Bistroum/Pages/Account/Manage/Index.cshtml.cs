@@ -28,6 +28,7 @@ namespace Bistroum.Pages.Account.Manage
             _emailSender = emailSender;
         }
 
+        [Display(Name = "Uporabniško ime")]
         public string Username { get; set; }
 
         public bool IsEmailConfirmed { get; set; }
@@ -42,10 +43,11 @@ namespace Bistroum.Pages.Account.Manage
         {
             [Required]
             [EmailAddress]
+            [Display(Name = "E-pošta")]
             public string Email { get; set; }
 
             [Phone]
-            [Display(Name = "Phone number")]
+            [Display(Name = "Telefon")]
             public string PhoneNumber { get; set; }
         }
 
@@ -101,7 +103,7 @@ namespace Bistroum.Pages.Account.Manage
                 }
             }
 
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "Vaš profil je spremenjen";
             return RedirectToPage();
         }
         public async Task<IActionResult> OnPostSendVerificationEmailAsync()

@@ -9,9 +9,18 @@ function preveriRezultat(rezultat) {
     var vrednostNaSorobanu = vrednostSorobana();
 
     if (rezultat == vrednostNaSorobanu) {
-        alert('Pravilno');
+        //alert('Pravilno');
+        $("#pravilnoNepravilno").empty();
+        $("#pravilnoNepravilno").append("<span>Pravilno</span>");
+        $("#pravilnoNepravilno").css("color", "mediumseagreen");
+        //$("#pravilnoNepravilno").attr({ "color": "green" });
+
     } else {
-        alert('Nepravilno');
+        //alert('Nepravilno');
+        $("#pravilnoNepravilno").empty();
+        $("#pravilnoNepravilno").append("<span>Nepravilno</span>");
+        $("#pravilnoNepravilno").css("color", "red");
+        //$("#pravilnoNepravilno").attr({ "color": "red" });
     }
 }
 
@@ -19,6 +28,7 @@ function preveriRezultat(rezultat) {
 function zapisStevilEnomestno() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');
@@ -36,6 +46,7 @@ function zapisStevilEnomestno() {
 function zapisStevilDvomestno() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');
@@ -54,6 +65,7 @@ function zapisStevilDvomestno() {
 function brezPrijateljaSestevanje() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');
@@ -109,6 +121,7 @@ function brezPrijateljaSestevanje() {
 function brezPrijateljaOdstevanje() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');
@@ -164,6 +177,7 @@ function brezPrijateljaOdstevanje() {
 function brezPrijateljaMesano() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');
@@ -254,6 +268,7 @@ function brezPrijateljaMesano() {
 function maliPrijateljSestevanje() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');
@@ -299,6 +314,7 @@ function maliPrijateljSestevanje() {
 function maliPrijateljOdstevanje() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');
@@ -346,6 +362,7 @@ function maliPrijateljOdstevanje() {
 function maliPrijateljMesano() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');
@@ -409,6 +426,7 @@ function velikiPrijateljSestevanje() {
     // V obeh izracunih mora narediti velikega prijatelja, razen ce je ze v prvem racunu dobil rezultat 10
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');
@@ -480,6 +498,7 @@ function velikiPrijateljOdstevanje() {
     // Uporabniku da dva izracuna in v obeh odstevanje velikega prijatelja, razen če v rezultatu prvega izracuna pride 19
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');
@@ -560,6 +579,7 @@ function velikiPrijateljMesano() {
 
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');
@@ -691,6 +711,7 @@ function obaPrijateljaSestevanje() {
     // Uporabniku prikaze 3 stevila
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');
@@ -733,6 +754,7 @@ function obaPrijateljaSestevanje() {
 function obaPrijateljaOdstevanje() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');
@@ -779,6 +801,7 @@ function obaPrijateljaOdstevanje() {
 function obaPrijateljaMesano() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');
@@ -876,6 +899,7 @@ function obaPrijateljaMesano() {
 function mnozenjeEnomestno() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');
@@ -896,6 +920,7 @@ function mnozenjeEnomestno() {
 function mnozenjeDvomestno() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');
@@ -917,6 +942,7 @@ function deljenjeEnomestno() {
     // Za izračun generira 2 ali 3 mestno število, ki ga je potrebno deliti z 1 mestnim številom
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
     reset('vaje');

@@ -37,13 +37,15 @@ namespace Bistroum.Pages.Account
         {
             [Required]
             [EmailAddress]
+            [Display(Name = "E-pošta")]
             public string Email { get; set; }
 
             [Required]
             [DataType(DataType.Password)]
+            [Display(Name = "Geslo")]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Zapomni za naslednjiè")]
             public bool RememberMe { get; set; }
         }
 
@@ -73,7 +75,7 @@ namespace Bistroum.Pages.Account
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
+                    _logger.LogInformation("Uporabnik prijavljen.");
                     return LocalRedirect(Url.GetLocalUrl(returnUrl));
                 }
                 if (result.RequiresTwoFactor)
@@ -82,12 +84,12 @@ namespace Bistroum.Pages.Account
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning("User account locked out.");
+                    _logger.LogWarning("Uporabniški raèun je zaklenjen.");
                     return RedirectToPage("./Lockout");
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Neveljaven poizkus prijave.");
                     return Page();
                 }
             }

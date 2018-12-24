@@ -1,0 +1,40 @@
+﻿@page
+@model Bistroum.Pages.DeljenjeModel
+@{
+    ViewData["Title"] = "Deljenje";
+}
+
+<h2>Deljenje</h2>
+<p class="text-justify">Obstajata dve glavni metodi za deljenje. Starejša metoda se je večinoma prenehala uporabljati okoli leta 1930 saj si je za njeno uporabo bilo potrebno zapomniti posebno tabelo deljenja. Novejša metoda je enostavnejša, ker namesto omenjene tabele deljenja uporablja poštevanko. Pri deljenje števil a : b (oz. a / b) se število a imenuje deljenec, b pa delitelj. Deljenec se na sorobanu zapiše na skrajni desni strani sorobana. Če želimo, si delitelja lahko zapišemo na skrajno levo stran sorobana kot je prikazano na sliki spodaj. Lahko pa si ga tudi le zapomnimo in njegov zapis na sorobanu povsem izpustimo, še zlasti če gre za manjše število.  (Kojima, 1970) Pri zapisu deljenca si na sorobanu nekateri pomagajo tudi s centralno piko in sicer tako, da deljenec  zapišejo desno od nje. Ta način zapisa desno ter levo od pike se uporablja v primeru, ko ima soroban dovolj veliko število stolpcev. V našem primeru bomo zaradi velikosti spletnega sorobana (število stolpcev je zaradi preglednosti in ostalih modulov desno in levo od sorobana na spletni strani prilagojeno na 5) deljenca napisali na desno stran (ne glede na piko), rezultat deljenja pa na levo stran sorobana.</p>
+
+<img src="~/images/soroban14.jpg" class="img-responsive center-block" />
+<p class="text-center">Slika: Primer zapisa 658 : 2 na soroban (lastni prikaz, 2018)</p>
+
+<p class="text-justify">Rešitev deljenja lahko preverimo z z množenjem kvocienta in delitelja. Produkt pri tem dobimo v istih stolpcih sorobana, kjer se je prvotno nahajal deljenec. Metodi deljenja in množenja sta si torej v tem pogledu nasprotujoči v smislu, da je deljenje ravno nasprotna operacija kot je deljenje (že iz matematike vemo, da sta si ti dve operaciji inverzni). (Kojima, 1970)</p>
+
+<p class="text-justify">Vzemimo primer 658 : 2 = 329<br />Število 658 je deljenec (ang. dividend).<br />Število 2 je delitelj (ang. divisor)<br />Rezultat 329 je kvocient.</p>
+
+<p class="text-justify">1. korak:<br />Na sorobanu zapišemo deljenec 658 čisto na desni strani sorobana kot je prikazano na sliki spodaj.</p>
+
+<img src="~/images/soroban15.jpg" class="img-responsive center-block" />
+<p class="text-center">Slika: Zapis deljenca 658 na soroban (lastni prikaz, 2018)</p>
+
+<p class="text-justify">2. korak:<br />6 delimo z 2 in rezultat 3 zapišemo v stotice (najbolj levi stolpec) kot je prikazano na sliki spodaj. V primeru, da število ne bi bilo deljivo z 2, izračunamo, kolikokrat gre število 2 v to število (na primer če bi delili 9 z 2, bi zapisali rezultat 4, ker je 4 ∙ 2 manj kot 9, 5 ∙ 2 pa ni več). Nato izračunamo produkt našega rezultata z deljiteljem, torej 3 ∙ 2. To vrednost 6 nato odštejemo od našega deljenca. Tako nam ostane še 58 : 2.</p>
+
+<img src="~/images/soroban16.jpg" class="img-responsive center-block" />
+<p class="text-center">Slika: Zapis rezultata v stotice (lastni prikaz, 2018)</p>
+
+<p class="text-justify">3. korak:<br />5 delimo z 2 in rezultat 2 zapišemo v en stolpec desno glede na prejšnji rezultat kot je prikazano na sliki spodaj. Nato izračunamo 2 ∙2 in to vrednost 4 odštejemo od 5. Ostane nam 1 oziroma 18 : 2.</p>
+
+<img src="~/images/soroban17.jpg" class="img-responsive center-block" />
+<p class="text-center">Slika: Zapis rezultata v desetice (lastni prikaz, 2018)</p>
+
+<p class="text-justify">4. korak:<br />18 delimo z 2 in rezultat 9 zapišemo v desni stolpec glede na prejšnji rezultat kot je prikazano na sliki spodaj. Izračunamo 9 ∙ 2 ter to vrednost 18 odštejemo od 18 in pri tem dobimo ostanek 0.</p>
+
+<img src="~/images/soroban18.jpg" class="img-responsive center-block" />
+<p class="text-center">Slika: Zapis rezultata v enice (lastni prikaz, 2018)</p>
+
+<p class="text-justify">Dobimo rezultat 329, ki je prikazan na levi strani sorobana.</p>
+
+<p class="text-justify">Viri:</p>
+<p class="text-justify">Kojima, T. (1970). The japanese abacus: Its use and theory. Tokyo: Charles E. Tuttle Company</p>

@@ -94,6 +94,8 @@ namespace Bistroum
             app.UseAuthentication();
 
             app.UseMvc();
+
+
         }
     }
 }

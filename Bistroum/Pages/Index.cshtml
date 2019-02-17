@@ -1,114 +1,17 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Domov";
+    string urlParameter = HttpContext.Request.QueryString.ToString();
 }
 
 
 <div class="row">
-    <div class="col-xs-2">
-        @{
-            string urlParameter = HttpContext.Request.QueryString.ToString();
-
-            // Zapis stevil
-            if (urlParameter == "?i=1")
-            {
-                <div class="podmeniNaslov">Vaje</div>
-                <div class="podmeniNaslov">Zapis števil</div>
-                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default" onclick="zapisStevilEnomestno()">Enomestno</button>
-                    <button type="button" class="btn btn-default" onclick="zapisStevilDvomestno()">Dvomestno</button>
-                </div>
-            }
-            // Brez prijatelja
-            else if (urlParameter == "?i=2")
-            {
-                <div class="podmeniNaslov">Vaje</div>
-                <div class="podmeniNaslov">Brez prijatelja</div>
-                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default" onclick="brezPrijateljaSestevanje()">Seštevanje</button>
-                    <button type="button" class="btn btn-default" onclick="brezPrijateljaOdstevanje()">Odštevanje</button>
-                    <button type="button" class="btn btn-default" onclick="brezPrijateljaMesano()">Mešano</button>
-                </div>
-            }
-            // Mali prijatelj
-            else if (urlParameter == "?i=3")
-            {
-                <div class="podmeniNaslov">Vaje</div>
-                <div class="podmeniNaslov">Mali prijatelj</div>
-                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default" onclick="maliPrijateljSestevanje()">Seštevanje</button>
-                    <button type="button" class="btn btn-default" onclick="maliPrijateljOdstevanje()">Odštevanje</button>
-                    <button type="button" class="btn btn-default" onclick="maliPrijateljMesano()">Mešano</button>
-                </div>
-            }
-            // Veliki prijatelj
-            else if (urlParameter == "?i=4")
-            {
-                <div class="podmeniNaslov">Vaje</div>
-                <div class="podmeniNaslov">Veliki prijatelj</div>
-                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default" onclick="velikiPrijateljSestevanje()">Seštevanje</button>
-                    <button type="button" class="btn btn-default" onclick="velikiPrijateljOdstevanje()">Odštevanje</button>
-                    <button type="button" class="btn btn-default" onclick="velikiPrijateljMesano()">Mešano</button>
-                </div>
-            }
-            // Oba prijatelja
-            else if (urlParameter == "?i=5")
-            {
-                <div class="podmeniNaslov">Vaje</div>
-                <div class="podmeniNaslov">Oba prijatelja</div>
-                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default" onclick="obaPrijateljaSestevanje()">Seštevanje</button>
-                    <button type="button" class="btn btn-default" onclick="obaPrijateljaOdstevanje()">Odštevanje</button>
-                    <button type="button" class="btn btn-default" onclick="obaPrijateljaMesano()">Mešano</button>
-                </div>
-            }
-            // Množenje
-            else if (urlParameter == "?i=6")
-            {
-                <div class="podmeniNaslov">Vaje</div>
-                <div class="podmeniNaslov">Množenje</div>
-                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default" onclick="mnozenjeEnomestno()">Enomestno</button>
-                    <button type="button" class="btn btn-default" onclick="mnozenjeDvomestno()">Dvomestno</button>
-                </div>
-            }
-            // Deljenje
-            else if (urlParameter == "?i=7")
-            {
-                <div class="podmeniNaslov">Vaje</div>
-                <div class="podmeniNaslov">Deljenje</div>
-                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                    <button type="button" class="btn btn-default" onclick="deljenjeEnomestno()">Enomestno</button>
-                </div>
-            }
-        }
-
-
+    <div class="col-xs-12">
+        <p class="text-justify">To je test.</p>
     </div>
-    <div id="DivSvg" class="col-xs-7">
-
-    </div>
-    <div class="col-xs-3">
-        <div>
-            <b>Izračunaj</b>
-        </div>
-        <div id="racunVaje"></div>
-        <div id="pravilnoNepravilno"></div>
-
-        <br/>
-        <span>Vrednost sorobana: </span>
-        <span id="spanVrednostSorobana"></span>
-
-
-    </div><!-- col-xs-3 -->
-
 </div><!-- row -->
 
 
-    <!-- Ta del se generira za layout skriptami, torej cisto na koncu -->
-    @section scripts {
-        <script src="~/js/vaje-konec.js" asp-append-version="true"></script>
-    }
+
 

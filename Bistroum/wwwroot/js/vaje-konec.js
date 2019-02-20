@@ -38,7 +38,7 @@ function zapisStevilEnomestno() {
 
     $("#racunVaje").append("<p>Število: " + stevilo + "</p>");
 
-    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + stevilo + ")' >Preveri</button >"
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + stevilo + ")' >Preveri</button >";
     $("#racunVaje").append(racunVajeString);
 }
 
@@ -56,7 +56,7 @@ function zapisStevilDvomestno() {
 
     $("#racunVaje").append("<p>Število: " + stevilo + "</p>");
 
-    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + stevilo + ")' >Preveri</button >"
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + stevilo + ")' >Preveri</button >";
     $("#racunVaje").append(racunVajeString);
 
 }
@@ -64,7 +64,11 @@ function zapisStevilDvomestno() {
 // Racunanje brez prehoda cez 5 ali 10
 function brezPrijateljaSestevanje() {
     // Pocisti vsebino diva za racun
-    $("#racunVaje").empty();
+    //$("#racunVaje").empty();
+    $("#stevilo1").empty();
+    $("#stevilo2").empty();
+    $("#stevilo3").empty();
+
     $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
@@ -111,10 +115,14 @@ function brezPrijateljaSestevanje() {
     var sestevek = stevilo1 + stevilo2 + stevilo3;
 
     // Vstavi izracun v div
-    $("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
+    $("#stevilo1").append(stevilo1);
+    $("#stevilo2").append(stevilo2);
+    $("#stevilo3").append(stevilo3);
+    //$("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
+    $("#gumbPreveri").attr({ "onclick": "preveriRezultat(" + sestevek + ")" });
 
-    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
-    $("#racunVaje").append(racunVajeString);
+    //var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >";
+    //$("#racunVaje").append(racunVajeString);
 }
 
 
@@ -169,7 +177,7 @@ function brezPrijateljaOdstevanje() {
     // Vstavi izracun v div
     $("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
 
-    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >";
     $("#racunVaje").append(racunVajeString);
 }
 
@@ -259,7 +267,7 @@ function brezPrijateljaMesano() {
     // Vstavi izracun v div
     $("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
 
-    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >";
     $("#racunVaje").append(racunVajeString);
 
 }
@@ -306,7 +314,7 @@ function maliPrijateljSestevanje() {
     // Vstavi izracun v div
     $("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
 
-    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >";
     $("#racunVaje").append(racunVajeString);
 }
 
@@ -354,7 +362,7 @@ function maliPrijateljOdstevanje() {
     // Vstavi izracun v div
     $("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
 
-    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >";
     $("#racunVaje").append(racunVajeString);
 }
 
@@ -385,11 +393,11 @@ function maliPrijateljMesano() {
         v1 = 0;
         stevilo1 = i1 + v1;
         // Drugo stevilo mora biti taksno, da je prehod preko 5 
-        i2 = izberiNakljucno(5 - i1, 4)
+        i2 = izberiNakljucno(5 - i1, 4);
         v2 = 0;
         stevilo2 = i2 + v2;
         // Tretje stevilo mora biti taksno, da je pri odstevanju prehod preko 5 
-        i3 = izberiNakljucno(i1 + i2 - 4, 4)
+        i3 = izberiNakljucno(i1 + i2 - 4, 4);
         v3 = 0;
         stevilo3 = - (i3 + v3);
     }
@@ -402,11 +410,11 @@ function maliPrijateljMesano() {
         v1 = 5;
         stevilo1 = i1 + v1;
         // Drugo stevilo mora biti taksno, da je pri odstevanju prehod preko 5 
-        i2 = izberiNakljucno(stevilo1 - 4, 4)
+        i2 = izberiNakljucno(stevilo1 - 4, 4);
         v2 = 0;
         stevilo2 = -(i2 + v2);
         // Tretje stevilo mora biti taksno, da je pri sestevanju prehod preko 5 
-        i3 = izberiNakljucno(5 - (stevilo1 + stevilo2), 4)
+        i3 = izberiNakljucno(5 - (stevilo1 + stevilo2), 4);
         v3 = 0;
         stevilo3 = i3 + v3;
     }
@@ -416,7 +424,7 @@ function maliPrijateljMesano() {
     // Vstavi izracun v div
     $("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
 
-    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >";
     $("#racunVaje").append(racunVajeString);
 }
 
@@ -489,7 +497,7 @@ function velikiPrijateljSestevanje() {
     // Vstavi izracun v div
     $("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
 
-    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >"
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >";
     $("#racunVaje").append(racunVajeString);
 }
 

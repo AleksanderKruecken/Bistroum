@@ -68,6 +68,15 @@ function vrednostSorobana() {
 
 
 function pritisk(event) {
+    var urlString = window.location.href;
+    var url = new URL(urlString);
+    var path = window.location.pathname; 
+    var parameter = url.searchParams.get("i");
+
+
+
+
+    
     izbraniKrogec = event.target.id;
     izbraniKrogecString = "'" + izbraniKrogec + "'";
     izbraniGumb = event.button;
@@ -107,6 +116,22 @@ function pritisk(event) {
 
     // Izpise vrednost sorobana
     document.getElementById("spanVrednostSorobana").innerHTML = vrednostSorobana();
+
+
+
+    if (path == '/Vaje' && parameter >= 2 && parameter <= 5) {
+        stevilo1 = $("#stevilo1").text();
+        stevilo2 = $("#stevilo2").text();
+        stevilo3 = $("#stevilo3").text();
+        vrednostNaSorobanu = vrednostSorobana();
+        if (stevilo1 == vrednostNaSorobanu) {
+            $("#stevilo1").css("color", "mediumseagreen");
+
+        }
+
+
+
+    }
 }
 
 

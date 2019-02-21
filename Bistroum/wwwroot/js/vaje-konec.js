@@ -120,6 +120,7 @@ function brezPrijateljaSestevanje() {
     $("#stevilo3").append(stevilo3);
     //$("#racunVaje").append(stevilo1 + "<br/>" + stevilo2 + "<br/>" + stevilo3 + "<br/>");
     $("#gumbPreveri").attr({ "onclick": "preveriRezultat(" + sestevek + ")" });
+    // Mozno tudi z jquery click 
 
     //var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + sestevek + ")' >Preveri</button >";
     //$("#racunVaje").append(racunVajeString);

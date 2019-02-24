@@ -120,16 +120,27 @@ function pritisk(event) {
 
 
     if (path == '/Vaje' && parameter >= 2 && parameter <= 5) {
-        stevilo1 = $("#stevilo1").text();
-        stevilo2 = $("#stevilo2").text();
-        stevilo3 = $("#stevilo3").text();
+        var stevilo1 = parseInt($("#stevilo1").text());
+        var stevilo2 = parseInt($("#stevilo2").text());
+        var stevilo3 = parseInt($("#stevilo3").text());
+
         vrednostNaSorobanu = vrednostSorobana();
         if (stevilo1 == vrednostNaSorobanu) {
             $("#stevilo1").css("color", "mediumseagreen");
-
+            vmesniRezultat1Pravilno = true;
         }
 
+        if (vmesniRezultat1Pravilno == true && ((stevilo1 + stevilo2) == vrednostNaSorobanu)) {
+            $("#stevilo2").css("color", "mediumseagreen");
+            vmesniRezultat2Pravilno = true;
+        }
 
+        if (vmesniRezultat2Pravilno == true && ((stevilo1 + stevilo2 + stevilo3) == vrednostNaSorobanu)) {
+            $("#stevilo3").css("color", "mediumseagreen");
+            $("#pravilnoNepravilno").empty();
+            $("#pravilnoNepravilno").append("<span>Pravilno</span>");
+            $("#pravilnoNepravilno").css("color", "mediumseagreen");
+        }
 
     }
 }

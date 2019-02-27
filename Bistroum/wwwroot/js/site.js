@@ -117,12 +117,24 @@ function pritisk(event) {
     // Izpise vrednost sorobana
     document.getElementById("spanVrednostSorobana").innerHTML = vrednostSorobana();
 
+    if (path == '/Vaje' && parameter == 1) {
+        stevilo1 = parseInt($("#stevilo1").text());
 
+        vrednostNaSorobanu = vrednostSorobana();
+        if (stevilo1 == vrednostNaSorobanu) {
+            $("#stevilo1").css("color", "mediumseagreen");
+
+            $("#pravilnoNepravilno").empty();
+            $("#pravilnoNepravilno").append("<span>Pravilno</span>");
+            $("#pravilnoNepravilno").css("color", "mediumseagreen");
+        }
+
+    }
 
     if (path == '/Vaje' && parameter >= 2 && parameter <= 5) {
-        var stevilo1 = parseInt($("#stevilo1").text());
-        var stevilo2 = parseInt($("#stevilo2").text());
-        var stevilo3 = parseInt($("#stevilo3").text());
+        stevilo1 = parseInt($("#stevilo1").text());
+        stevilo2 = parseInt($("#stevilo2").text());
+        stevilo3 = parseInt($("#stevilo3").text());
 
         vrednostNaSorobanu = vrednostSorobana();
         if (stevilo1 == vrednostNaSorobanu) {

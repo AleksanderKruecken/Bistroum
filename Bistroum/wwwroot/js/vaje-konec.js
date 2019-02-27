@@ -28,6 +28,14 @@ function preveriRezultat(rezultat) {
 function zapisStevilEnomestno() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#stevilo1").empty();
+    $("#stevilo1").css("color", "black");
+/*
+    $("#stevilo2").empty();
+    $("#stevilo2").css("color", "black");
+    $("#stevilo3").empty();
+    $("#stevilo3").css("color", "black");
+*/
     $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
@@ -36,16 +44,29 @@ function zapisStevilEnomestno() {
     // Nakljucno izbere eno enomestno stevilo
     var stevilo = izberiNakljucno(1, 9);
 
-    $("#racunVaje").append("<p>Število: " + stevilo + "</p>");
-
-    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + stevilo + ")' >Preveri</button >";
+    // Vstavi izracun v div
+    $("#racunVaje").append("<div id='stevilo1'>" + stevilo + "</div>");
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'zapisStevilEnomestno()'>Naslednji</button >";
     $("#racunVaje").append(racunVajeString);
+    /*
+    $("#stevilo1").append(stevilo);
+    $("#gumbPreveri").attr({ "onclick": "zapisStevilEnomestno()" });
+    */
 }
 
 
 function zapisStevilDvomestno() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#stevilo1").empty();
+    $("#stevilo1").css("color", "black");
+/*
+    $("#stevilo2").empty();
+    $("#stevilo2").css("color", "black");
+    $("#stevilo3").empty();
+    $("#stevilo3").css("color", "black");
+*/
     $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
@@ -53,11 +74,15 @@ function zapisStevilDvomestno() {
 
     // Nakljucno izbere eno dvomestno stevilo
     var stevilo = izberiNakljucno(10, 99);
-
-    $("#racunVaje").append("<p>Število: " + stevilo + "</p>");
-
-    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + stevilo + ")' >Preveri</button >";
+    // Vstavi izracun v div
+    $("#racunVaje").append("<div id='stevilo1'>" + stevilo + "</div>");
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'zapisStevilDvomestno()'>Naslednji</button >";
     $("#racunVaje").append(racunVajeString);
+/*
+    $("#stevilo1").append(stevilo);
+    $("#gumbPreveri").attr({ "onclick": "zapisStevilDvomestno()" });
+*/
 
 }
 

@@ -153,6 +153,67 @@ function pritisk(event) {
             $("#pravilnoNepravilno").append("<span>Pravilno</span>");
             $("#pravilnoNepravilno").css("color", "mediumseagreen");
         }
+    }
+
+    if (path == '/Vaje' && parameter == 6 && parseInt($("#stevilo2").text()) <= 9) {
+        stevilo1 = parseInt($("#stevilo1").text());
+        stevilo1Enice = parseInt($("#stevilo1").text().charAt(1));
+        stevilo1Desetice = parseInt($("#stevilo1").text().charAt(0));
+        stevilo2 = parseInt($("#stevilo2").text());
+
+        vrednostNaSorobanu = vrednostSorobana();
+        if (stevilo1Enice * stevilo2 == vrednostNaSorobanu) {
+            //$("#stevilo1").css("color", "mediumseagreen");
+            vmesniRezultat1Pravilno = true;
+            $("#pravilnoNepravilno").empty();
+            $("#pravilnoNepravilno").append("<div>Pravilen vmesni rezultat:</div><div>" + stevilo1Enice + "*" + stevilo2 + "=" + stevilo1Enice * stevilo2 + "</div>");
+            $("#pravilnoNepravilno").css("color", "mediumseagreen");
+        }
+
+        if (stevilo1Desetice * stevilo2 == vrednostNaSorobanu / 10) {
+            vmesniRezultat1Pravilno = true;
+            $("#pravilnoNepravilno").empty();
+            $("#pravilnoNepravilno").append("<div>Pravilen vmesni rezultat:</div><div>" + stevilo1Desetice + "*" + stevilo2 + "=" + stevilo1Desetice * stevilo2 + "</div>");
+            $("#pravilnoNepravilno").css("color", "mediumseagreen");
+        }
+
+        if (vmesniRezultat1Pravilno == true && ((stevilo1 * stevilo2) == vrednostNaSorobanu)) {
+            $("#pravilnoNepravilno").empty();
+            $("#pravilnoNepravilno").append("<span>Pravilno</span>");
+            $("#pravilnoNepravilno").css("color", "mediumseagreen");
+        }
+
+    }
+
+    if (path == '/Vaje' && parameter == 6 && parseInt($("#stevilo2").text()) > 9) {
+        stevilo1 = parseInt($("#stevilo1").text());
+        stevilo1Enice = parseInt($("#stevilo1").text().charAt(1));
+        stevilo1Desetice = parseInt($("#stevilo1").text().charAt(0));
+        stevilo2 = parseInt($("#stevilo2").text());
+
+        vrednostNaSorobanu = vrednostSorobana();
+
+        if ((stevilo1 * stevilo2) == vrednostNaSorobanu) {
+            $("#pravilnoNepravilno").empty();
+            $("#pravilnoNepravilno").append("<span>Pravilno</span>");
+            $("#pravilnoNepravilno").css("color", "mediumseagreen");
+        }
+
+    }
+
+    if (path == '/Vaje' && parameter == 7) {
+        stevilo1 = parseInt($("#stevilo1").text());
+        stevilo1Enice = parseInt($("#stevilo1").text().charAt(1));
+        stevilo1Desetice = parseInt($("#stevilo1").text().charAt(0));
+        stevilo2 = parseInt($("#stevilo2").text());
+
+        vrednostNaSorobanu = vrednostSorobana();
+
+        if ((stevilo1 / stevilo2) == vrednostNaSorobanu) {
+            $("#pravilnoNepravilno").empty();
+            $("#pravilnoNepravilno").append("<span>Pravilno</span>");
+            $("#pravilnoNepravilno").css("color", "mediumseagreen");
+        }
 
     }
 }

@@ -45,10 +45,12 @@ function zapisStevilEnomestno() {
     var stevilo = izberiNakljucno(1, 9);
 
     // Vstavi izracun v div
+    $("#racunVaje").append("<div><b>Zapiši:</b></div>");
     $("#racunVaje").append("<div id='stevilo1'>" + stevilo + "</div>");
     $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
     var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'zapisStevilEnomestno()'>Naslednji</button >";
     $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
     /*
     $("#stevilo1").append(stevilo);
     $("#gumbPreveri").attr({ "onclick": "zapisStevilEnomestno()" });
@@ -75,10 +77,12 @@ function zapisStevilDvomestno() {
     // Nakljucno izbere eno dvomestno stevilo
     var stevilo = izberiNakljucno(10, 99);
     // Vstavi izracun v div
+    $("#racunVaje").append("<div><b>Zapiši:</b></div>");
     $("#racunVaje").append("<div id='stevilo1'>" + stevilo + "</div>");
     $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
     var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'zapisStevilDvomestno()'>Naslednji</button >";
     $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
 /*
     $("#stevilo1").append(stevilo);
     $("#gumbPreveri").attr({ "onclick": "zapisStevilDvomestno()" });
@@ -92,6 +96,7 @@ function brezPrijateljaSestevanje() {
     vmesniRezultat2Pravilno = false;
 
     // Pocisti vsebino diva za racun
+    $("#racunVaje").empty();
     $("#stevilo1").empty();
     $("#stevilo1").css("color", "black");
     $("#stevilo2").empty();
@@ -144,10 +149,20 @@ function brezPrijateljaSestevanje() {
     var sestevek = stevilo1 + stevilo2 + stevilo3;
 
     // Vstavi izracun v div
+    $("#racunVaje").append("<div><b>Izračunaj:</b></div>");
+    $("#racunVaje").append("<div id='stevilo1'>" + stevilo1 + "</div>");
+    $("#racunVaje").append("<div id='stevilo2'>" + stevilo2 + "</div>");
+    $("#racunVaje").append("<div id='stevilo3'>" + stevilo3 + "</div>");
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'brezPrijateljaSestevanje()'>Naslednji</button >";
+    $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
+/*
     $("#stevilo1").append(stevilo1);
     $("#stevilo2").append(stevilo2);
     $("#stevilo3").append(stevilo3);
     $("#gumbPreveri").attr({ "onclick": "brezPrijateljaSestevanje()" });
+*/
     // Mozno tudi z jquery click
 }
 
@@ -157,6 +172,7 @@ function brezPrijateljaOdstevanje() {
     vmesniRezultat2Pravilno = false;
 
     // Pocisti vsebino diva za racun
+    $("#racunVaje").empty();
     $("#stevilo1").empty();
     $("#stevilo1").css("color", "black");
     $("#stevilo2").empty();
@@ -209,10 +225,20 @@ function brezPrijateljaOdstevanje() {
     var sestevek = stevilo1 + stevilo2 + stevilo3;
 
     // Vstavi izracun v div
+    $("#racunVaje").append("<div><b>Izračunaj:</b></div>");
+    $("#racunVaje").append("<div id='stevilo1'>" + stevilo1 + "</div>");
+    $("#racunVaje").append("<div id='stevilo2'>" + stevilo2 + "</div>");
+    $("#racunVaje").append("<div id='stevilo3'>" + stevilo3 + "</div>");
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'brezPrijateljaOdstevanje()'>Naslednji</button >";
+    $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
+/*
     $("#stevilo1").append(stevilo1);
     $("#stevilo2").append(stevilo2);
     $("#stevilo3").append(stevilo3);
     $("#gumbPreveri").attr({ "onclick": "brezPrijateljaOdstevanje()" });
+*/
 }
 
 
@@ -221,6 +247,7 @@ function brezPrijateljaMesano() {
     vmesniRezultat2Pravilno = false;
 
     // Pocisti vsebino diva za racun
+    $("#racunVaje").empty();
     $("#stevilo1").empty();
     $("#stevilo1").css("color", "black");
     $("#stevilo2").empty();
@@ -307,11 +334,20 @@ function brezPrijateljaMesano() {
     var sestevek = stevilo1 + stevilo2 + stevilo3;
 
     // Vstavi izracun v div
+    $("#racunVaje").append("<div><b>Izračunaj:</b></div>");
+    $("#racunVaje").append("<div id='stevilo1'>" + stevilo1 + "</div>");
+    $("#racunVaje").append("<div id='stevilo2'>" + stevilo2 + "</div>");
+    $("#racunVaje").append("<div id='stevilo3'>" + stevilo3 + "</div>");
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'brezPrijateljaMesano()'>Naslednji</button >";
+    $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
+/*
     $("#stevilo1").append(stevilo1);
     $("#stevilo2").append(stevilo2);
     $("#stevilo3").append(stevilo3);
     $("#gumbPreveri").attr({ "onclick": "brezPrijateljaMesano()" });
-
+*/
 }
 
 
@@ -320,6 +356,7 @@ function maliPrijateljSestevanje() {
     vmesniRezultat2Pravilno = false;
 
     // Pocisti vsebino diva za racun
+    $("#racunVaje").empty();
     $("#stevilo1").empty();
     $("#stevilo1").css("color", "black");
     $("#stevilo2").empty();
@@ -362,10 +399,21 @@ function maliPrijateljSestevanje() {
     var sestevek = stevilo1 + stevilo2 + stevilo3;
 
     // Vstavi izracun v div
+    $("#racunVaje").append("<div><b>Izračunaj:</b></div>");
+    $("#racunVaje").append("<div id='stevilo1'>" + stevilo1 + "</div>");
+    $("#racunVaje").append("<div id='stevilo2'>" + stevilo2 + "</div>");
+    $("#racunVaje").append("<div id='stevilo3'>" + stevilo3 + "</div>");
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'maliPrijateljSestevanje()'>Naslednji</button >";
+    $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
+
+/*
     $("#stevilo1").append(stevilo1);
     $("#stevilo2").append(stevilo2);
     $("#stevilo3").append(stevilo3);
     $("#gumbPreveri").attr({ "onclick": "maliPrijateljSestevanje()" });
+*/
 }
 
 
@@ -374,6 +422,7 @@ function maliPrijateljOdstevanje() {
     vmesniRezultat2Pravilno = false;
 
     // Pocisti vsebino diva za racun
+    $("#racunVaje").empty();
     $("#stevilo1").empty();
     $("#stevilo1").css("color", "black");
     $("#stevilo2").empty();
@@ -418,10 +467,20 @@ function maliPrijateljOdstevanje() {
     var sestevek = stevilo1 + stevilo2 + stevilo3;
 
     // Vstavi izracun v div
+    $("#racunVaje").append("<div><b>Izračunaj:</b></div>");
+    $("#racunVaje").append("<div id='stevilo1'>" + stevilo1 + "</div>");
+    $("#racunVaje").append("<div id='stevilo2'>" + stevilo2 + "</div>");
+    $("#racunVaje").append("<div id='stevilo3'>" + stevilo3 + "</div>");
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'maliPrijateljOdstevanje()'>Naslednji</button >";
+    $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
+/*
     $("#stevilo1").append(stevilo1);
     $("#stevilo2").append(stevilo2);
     $("#stevilo3").append(stevilo3);
     $("#gumbPreveri").attr({ "onclick": "maliPrijateljOdstevanje()" });
+*/
 }
 
 
@@ -430,6 +489,7 @@ function maliPrijateljMesano() {
     vmesniRezultat2Pravilno = false;
 
     // Pocisti vsebino diva za racun
+    $("#racunVaje").empty();
     $("#stevilo1").empty();
     $("#stevilo1").css("color", "black");
     $("#stevilo2").empty();
@@ -486,12 +546,21 @@ function maliPrijateljMesano() {
     }
 
     var sestevek = stevilo1 + stevilo2 + stevilo3;
-
+    $("#racunVaje").append("<div><b>Izračunaj:</b></div>");
+    $("#racunVaje").append("<div id='stevilo1'>" + stevilo1 + "</div>");
+    $("#racunVaje").append("<div id='stevilo2'>" + stevilo2 + "</div>");
+    $("#racunVaje").append("<div id='stevilo3'>" + stevilo3 + "</div>");
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'maliPrijateljMesano()'>Naslednji</button >";
+    $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
     // Vstavi izracun v div
+/*
     $("#stevilo1").append(stevilo1);
     $("#stevilo2").append(stevilo2);
     $("#stevilo3").append(stevilo3);
     $("#gumbPreveri").attr({ "onclick": "maliPrijateljMesano()" });
+*/
 }
 
 
@@ -503,6 +572,7 @@ function velikiPrijateljSestevanje() {
     vmesniRezultat2Pravilno = false;
 
     // Pocisti vsebino diva za racun
+    $("#racunVaje").empty();
     $("#stevilo1").empty();
     $("#stevilo1").css("color", "black");
     $("#stevilo2").empty();
@@ -570,10 +640,20 @@ function velikiPrijateljSestevanje() {
     var sestevek = stevilo1 + stevilo2 + stevilo3;
 
     // Vstavi izracun v div
+    $("#racunVaje").append("<div><b>Izračunaj:</b></div>");
+    $("#racunVaje").append("<div id='stevilo1'>" + stevilo1 + "</div>");
+    $("#racunVaje").append("<div id='stevilo2'>" + stevilo2 + "</div>");
+    $("#racunVaje").append("<div id='stevilo3'>" + stevilo3 + "</div>");
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'velikiPrijateljSestevanje()'>Naslednji</button >";
+    $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
+/*
     $("#stevilo1").append(stevilo1);
     $("#stevilo2").append(stevilo2);
     $("#stevilo3").append(stevilo3);
     $("#gumbPreveri").attr({ "onclick": "velikiPrijateljSestevanje()" });
+*/
 }
 
 
@@ -584,6 +664,8 @@ function velikiPrijateljOdstevanje() {
     vmesniRezultat1Pravilno = false;
     vmesniRezultat2Pravilno = false;
 
+    // Pocisti vsebino diva za racun
+    $("#racunVaje").empty();
     $("#stevilo1").empty();
     $("#stevilo1").css("color", "black");
     $("#stevilo2").empty();
@@ -658,10 +740,20 @@ function velikiPrijateljOdstevanje() {
     var sestevek = stevilo1 + stevilo2 + stevilo3;
 
     // Vstavi izracun v div
+    $("#racunVaje").append("<div><b>Izračunaj:</b></div>");
+    $("#racunVaje").append("<div id='stevilo1'>" + stevilo1 + "</div>");
+    $("#racunVaje").append("<div id='stevilo2'>" + stevilo2 + "</div>");
+    $("#racunVaje").append("<div id='stevilo3'>" + stevilo3 + "</div>");
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'velikiPrijateljOdstevanje()'>Naslednji</button >";
+    $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
+/*
     $("#stevilo1").append(stevilo1);
     $("#stevilo2").append(stevilo2);
     $("#stevilo3").append(stevilo3);
     $("#gumbPreveri").attr({ "onclick": "velikiPrijateljOdstevanje()" });
+*/
 }
 
 
@@ -673,6 +765,7 @@ function velikiPrijateljMesano() {
     vmesniRezultat2Pravilno = false;
 
     // Pocisti vsebino diva za racun
+    $("#racunVaje").empty();
     $("#stevilo1").empty();
     $("#stevilo1").css("color", "black");
     $("#stevilo2").empty();
@@ -800,10 +893,20 @@ function velikiPrijateljMesano() {
     var sestevek = stevilo1 + stevilo2 + stevilo3;
 
     // Vstavi izracun v div
+    $("#racunVaje").append("<div><b>Izračunaj:</b></div>");
+    $("#racunVaje").append("<div id='stevilo1'>" + stevilo1 + "</div>");
+    $("#racunVaje").append("<div id='stevilo2'>" + stevilo2 + "</div>");
+    $("#racunVaje").append("<div id='stevilo3'>" + stevilo3 + "</div>");
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'velikiPrijateljMesano()'>Naslednji</button >";
+    $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
+/*
     $("#stevilo1").append(stevilo1);
     $("#stevilo2").append(stevilo2);
     $("#stevilo3").append(stevilo3);
     $("#gumbPreveri").attr({ "onclick": "velikiPrijateljMesano()" });
+*/
 }
 
 
@@ -814,6 +917,7 @@ function obaPrijateljaSestevanje() {
     vmesniRezultat2Pravilno = false;
 
     // Pocisti vsebino diva za racun
+    $("#racunVaje").empty();
     $("#stevilo1").empty();
     $("#stevilo1").css("color", "black");
     $("#stevilo2").empty();
@@ -853,10 +957,20 @@ function obaPrijateljaSestevanje() {
     var sestevek = stevilo1 + stevilo2 + stevilo3;
 
     // Vstavi izracun v div
+    $("#racunVaje").append("<div><b>Izračunaj:</b></div>");
+    $("#racunVaje").append("<div id='stevilo1'>" + stevilo1 + "</div>");
+    $("#racunVaje").append("<div id='stevilo2'>" + stevilo2 + "</div>");
+    $("#racunVaje").append("<div id='stevilo3'>" + stevilo3 + "</div>");
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'obaPrijateljaSestevanje()'>Naslednji</button >";
+    $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
+/*
     $("#stevilo1").append(stevilo1);
     $("#stevilo2").append(stevilo2);
     $("#stevilo3").append(stevilo3);
     $("#gumbPreveri").attr({ "onclick": "obaPrijateljaSestevanje()" });
+*/
 }
 
 
@@ -866,6 +980,7 @@ function obaPrijateljaOdstevanje() {
     vmesniRezultat2Pravilno = false;
 
     // Pocisti vsebino diva za racun
+    $("#racunVaje").empty();
     $("#stevilo1").empty();
     $("#stevilo1").css("color", "black");
     $("#stevilo2").empty();
@@ -909,19 +1024,29 @@ function obaPrijateljaOdstevanje() {
     var sestevek = stevilo1 + stevilo2 + stevilo3;
 
     // Vstavi izracun v div
+    $("#racunVaje").append("<div><b>Izračunaj:</b></div>");
+    $("#racunVaje").append("<div id='stevilo1'>" + stevilo1 + "</div>");
+    $("#racunVaje").append("<div id='stevilo2'>" + stevilo2 + "</div>");
+    $("#racunVaje").append("<div id='stevilo3'>" + stevilo3 + "</div>");
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'obaPrijateljaOdstevanje()'>Naslednji</button >";
+    $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
+/*
     $("#stevilo1").append(stevilo1);
     $("#stevilo2").append(stevilo2);
     $("#stevilo3").append(stevilo3);
     $("#gumbPreveri").attr({ "onclick": "obaPrijateljaOdstevanje()" });
+*/
 }
 
 
 function obaPrijateljaMesano() {
-
     vmesniRezultat1Pravilno = false;
     vmesniRezultat2Pravilno = false;
 
     // Pocisti vsebino diva za racun
+    $("#racunVaje").empty();
     $("#stevilo1").empty();
     $("#stevilo1").css("color", "black");
     $("#stevilo2").empty();
@@ -1016,16 +1141,34 @@ function obaPrijateljaMesano() {
     var sestevek = stevilo1 + stevilo2 + stevilo3;
 
     // Vstavi izracun v div
+    $("#racunVaje").append("<div><b>Izračunaj:</b></div>");
+    $("#racunVaje").append("<div id='stevilo1'>" + stevilo1 + "</div>");
+    $("#racunVaje").append("<div id='stevilo2'>" + stevilo2 + "</div>");
+    $("#racunVaje").append("<div id='stevilo3'>" + stevilo3 + "</div>");
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'obaPrijateljaMesano()'>Naslednji</button >";
+    $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
+/*
     $("#stevilo1").append(stevilo1);
     $("#stevilo2").append(stevilo2);
     $("#stevilo3").append(stevilo3);
     $("#gumbPreveri").attr({ "onclick": "obaPrijateljaMesano()" });
+*/
 }
 
 
 function mnozenjeEnomestno() {
+
+    vmesniRezultat1Pravilno = false;
+    vmesniRezultat2Pravilno = false;
+
     // Pocisti vsebino diva za racun
-    $("#racunVaje").empty();
+     $("#racunVaje").empty();
+    $("#stevilo1").empty();
+    $("#stevilo1").css("color", "black");
+    $("#stevilo2").empty();
+    $("#stevilo2").css("color", "black");
     $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
@@ -1037,16 +1180,29 @@ function mnozenjeEnomestno() {
     var zmnozek = stevilo1 * stevilo2;
 
     // Vstavi izracun v div
-    $("#racunVaje").append(stevilo1 + " * " + stevilo2 + "<br/>");
+    $("#racunVaje").append("<div><b>Izračunaj:</b></div>");
+    $("#racunVaje").append("<span id='stevilo1'>" + stevilo1 + "</span><text> * </text>");
+    $("#racunVaje").append("<span id='stevilo2'>" + stevilo2 + "</span>");
 
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'mnozenjeEnomestno()'>Naslednji</button >";
+    $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
+/*
+    $("#racunVaje").append(stevilo1 + " * " + stevilo2 + "<br/>");
     var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + zmnozek + ")' >Preveri</button >"
     $("#racunVaje").append(racunVajeString);
+*/
 }
 
 
 function mnozenjeDvomestno() {
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#stevilo1").empty();
+    $("#stevilo1").css("color", "black");
+    $("#stevilo2").empty();
+    $("#stevilo2").css("color", "black");
     $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
@@ -1058,17 +1214,31 @@ function mnozenjeDvomestno() {
     var zmnozek = stevilo1 * stevilo2;
 
     // Vstavi izracun v div
-    $("#racunVaje").append(stevilo1 + " * " + stevilo2 + "<br/>");
+    $("#racunVaje").append("<div><b>Izračunaj:</b></div>");
+    $("#racunVaje").append("<span id='stevilo1'>" + stevilo1 + "</span><text> * </text>");
+    $("#racunVaje").append("<span id='stevilo2'>" + stevilo2 + "</span>");
 
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'mnozenjeDvomestno()'>Naslednji</button >";
+    $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
+/*
+    $("#racunVaje").append(stevilo1 + " * " + stevilo2 + "<br/>");
     var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + zmnozek + ")' >Preveri</button >"
     $("#racunVaje").append(racunVajeString);
+*/
 }
 
 
 function deljenjeEnomestno() {
     // Za izračun generira 2 ali 3 mestno število, ki ga je potrebno deliti z 1 mestnim številom
+
     // Pocisti vsebino diva za racun
     $("#racunVaje").empty();
+    $("#stevilo1").empty();
+    $("#stevilo1").css("color", "black");
+    $("#stevilo2").empty();
+    $("#stevilo2").css("color", "black");
     $("#pravilnoNepravilno").empty();
 
     // Pocisti soroban
@@ -1081,10 +1251,19 @@ function deljenjeEnomestno() {
     var zmnozek = stevilo1 * stevilo2;
 
     // Vstavi izracun v div
-    $("#racunVaje").append(zmnozek + " : " + stevilo2 + "<br/>");
+    $("#racunVaje").append("<div><b>Izračunaj:</b></div>");
+    $("#racunVaje").append("<span id='stevilo1'>" + zmnozek + "</span><text> : </text>");
+    $("#racunVaje").append("<span id='stevilo2'>" + stevilo2 + "</span>");
 
+    $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
+    var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'deljenjeEnomestno()'>Naslednji</button >";
+    $("#racunVaje").append(racunVajeString);
+    $("#napisVrednostSorobana").show();
+/*
+    $("#racunVaje").append(zmnozek + " : " + stevilo2 + "<br/>");
     var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + stevilo1 * 1000 + ")' >Preveri</button >"
     $("#racunVaje").append(racunVajeString);
+*/
 }
 
 

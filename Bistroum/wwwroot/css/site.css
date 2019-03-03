@@ -95,3 +95,8 @@ circle {
 #ucenjeDescriptionAdditional {
     padding-top: 15px;
 }
+
+/* Span Vrednost sorobana */
+#napisVrednostSorobana {
+    display: none;
+}

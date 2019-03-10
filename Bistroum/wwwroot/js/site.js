@@ -209,7 +209,7 @@ function pritisk(event) {
 
         vrednostNaSorobanu = vrednostSorobana();
 
-        if ((stevilo1 / stevilo2) == vrednostNaSorobanu) {
+        if ((stevilo1 / stevilo2) == vrednostNaSorobanu || (stevilo1 / stevilo2) == vrednostNaSorobanu/100 ) {
             $("#pravilnoNepravilno").empty();
             $("#pravilnoNepravilno").append("<span>Pravilno</span>");
             $("#pravilnoNepravilno").css("color", "mediumseagreen");

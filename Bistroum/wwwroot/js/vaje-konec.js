@@ -1244,8 +1244,11 @@ function deljenjeEnomestno() {
     // Pocisti soroban
     reset('vaje');
 
-    var stevilo1 = izberiNakljucno(10, 99);
+    //var stevilo1 = izberiNakljucno(10, 99);
     var stevilo2 = izberiNakljucno(2, 9);
+
+    var zgornjaMeja = parseInt(999 / stevilo2);
+    var stevilo1 = izberiNakljucno(10, zgornjaMeja);
 
     // od 20 do 891
     var zmnozek = stevilo1 * stevilo2;
@@ -1258,7 +1261,8 @@ function deljenjeEnomestno() {
     $("#racunVaje").append("<div id='pravilnoNepravilno'></div>");
     var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'deljenjeEnomestno()'>Naslednji</button >";
     $("#racunVaje").append(racunVajeString);
-    $("#napisVrednostSorobana").show();
+    //$("#napisVrednostSorobana").show();
+    $("#spanVrednostSorobana").hide();
 /*
     $("#racunVaje").append(zmnozek + " : " + stevilo2 + "<br/>");
     var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'preveriRezultat(" + stevilo1 * 1000 + ")' >Preveri</button >"

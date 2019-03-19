@@ -8,6 +8,9 @@ async function animacijaEnomestnoStevilo() {
     // Pocisti soroban
     reset('ucenje');
 
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
+
     // najprej nastavimo 7
     // 10 krat prestavi za desetino razlike; uporabljamo splosni (j-1)
     for (var i = 1; i <= 10; i++) {
@@ -16,6 +19,9 @@ async function animacijaEnomestnoStevilo() {
         document.getElementById(15).setAttribute('cy', yUp + yDiff * i / 10);
         await sleep(100);
     }
+
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 }
 
 async function animacijaDvomestnoStevilo() {
@@ -23,6 +29,9 @@ async function animacijaDvomestnoStevilo() {
 
     // Pocisti soroban
     reset('ucenje');
+
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
 
     // najprej nastavimo desetice na 8
     // 10 krat prestavi za desetino razlike; uporabljamo splosni (j-1)
@@ -41,6 +50,8 @@ async function animacijaDvomestnoStevilo() {
         await sleep(100);
     }
 
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 } 
 
 async function animacijaBrezPrijateljaSestevanje() {
@@ -48,6 +59,9 @@ async function animacijaBrezPrijateljaSestevanje() {
 
     // Pocisti soroban
     reset('ucenje');
+
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
 
     // najprej prestavimo prvo enko
     // 10 krat prestavi za desetino razlike; uporabljamo splosni (j-1)
@@ -67,6 +81,9 @@ async function animacijaBrezPrijateljaSestevanje() {
         document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
         await sleep(100);
     }
+
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 } // animacija
 
 async function animacijaBrezPrijateljaOdstevanje() {
@@ -74,6 +91,9 @@ async function animacijaBrezPrijateljaOdstevanje() {
 
     // Pocisti soroban
     reset('ucenje');
+
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
 
     // najprej nastavimo 9
     // 10 krat prestavi za desetino razlike; uporabljamo splosni (j-1)
@@ -98,6 +118,9 @@ async function animacijaBrezPrijateljaOdstevanje() {
         document.getElementById(15).setAttribute('cy', yUp + yDiff - yDiff * i / 10);
         await sleep(100);
     }
+
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 }
 
 async function animacijaBrezPrijateljaMesano() {
@@ -105,6 +128,9 @@ async function animacijaBrezPrijateljaMesano() {
 
     // Pocisti soroban
     reset('ucenje');
+
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
 
     // najprej nastavimo 8
     // 10 krat prestavi za desetino razlike; uporabljamo splosni (j-1)
@@ -130,11 +156,17 @@ async function animacijaBrezPrijateljaMesano() {
         document.getElementById(15).setAttribute('cy', yUp + yDiff * i / 10);
         await sleep(100);
     }
+
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 }
 
 async function animacijaMaliPrijateljSestevanje() {
     // Pocisti soroban
     reset('ucenje');
+
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
 
     // najprej nastavimo stevilo 4
     for (var i = 1; i <= 10; i++) {
@@ -152,11 +184,17 @@ async function animacijaMaliPrijateljSestevanje() {
         document.getElementById(14).setAttribute('cy', yStart + (4 - 1) * yDiff - yDiff + yDiff * i / 10);
         await sleep(100);
     }
+
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 }    
 
 async function animacijaMaliPrijateljOdstevanje() {
     // Pocisti soroban
     reset('ucenje');
+
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
 
     // najprej nastavimo stevilo 6
     for (var i = 1; i <= 10; i++) {
@@ -171,11 +209,17 @@ async function animacijaMaliPrijateljOdstevanje() {
         document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff * i / 10);
         await sleep(100);
     }
+
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 }   
 
 async function animacijaMaliPrijateljMesano() {
     // Pocisti soroban
     reset('ucenje');
+
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
 
     // najprej nastavimo stevilo 7
     for (var i = 1; i <= 10; i++) {
@@ -201,11 +245,18 @@ async function animacijaMaliPrijateljMesano() {
         document.getElementById(14).setAttribute('cy', yStart + (4 - 1) * yDiff - yDiff + yDiff * i / 10);
         await sleep(100);
     }
+
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 }   
 
 async function animacijaVelikiPrijateljSestevanje() {
     // Pocisti soroban
     reset('ucenje');
+
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
+
     // 7+9
     // najprej nastavimo stevilo 7
     for (var i = 1; i <= 10; i++) {
@@ -226,11 +277,18 @@ async function animacijaVelikiPrijateljSestevanje() {
         document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
         await sleep(100);
     }
+
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 }
 
 async function animacijaVelikiPrijateljOdstevanje() {
     // Pocisti soroban
     reset('ucenje');
+
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
+
     // 11-8
     // najprej nastavimo desetice stevila 11
     for (var i = 1; i <= 10; i++) {
@@ -256,11 +314,18 @@ async function animacijaVelikiPrijateljOdstevanje() {
         document.getElementById(13).setAttribute('cy', yStart + (3 - 1) * yDiff - yDiff * i / 10);
         await sleep(100);
     }
+
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 }
 
 async function animacijaVelikiPrijateljMesano() {
     // Pocisti soroban
     reset('ucenje');
+
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
+
     // 16-7+9
     // najprej nastavimo desetice stevila 16
     for (var i = 1; i <= 10; i++) {
@@ -300,11 +365,18 @@ async function animacijaVelikiPrijateljMesano() {
         document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
         await sleep(100);
     }
+
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 }
 
 async function animacijaObaPrijateljaSestevanje() {
     // Pocisti soroban
     reset('ucenje');
+
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
+
     // 7+6
     // najprej nastavimo stevilo 7
     for (var i = 1; i <= 10; i++) {
@@ -326,11 +398,18 @@ async function animacijaObaPrijateljaSestevanje() {
         document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
         await sleep(100);
     }
+
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 }
 
 async function animacijaObaPrijateljaOdstevanje() {
     // Pocisti soroban
     reset('ucenje');
+
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
+
     // 14-6
     // najprej nastavimo desetice stevila 14
     for (var i = 1; i <= 10; i++) {
@@ -359,11 +438,18 @@ async function animacijaObaPrijateljaOdstevanje() {
         document.getElementById(15).setAttribute('cy', yUp + yDiff * i / 10);
         await sleep(100);
     }
+
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 }
 
 async function animacijaObaPrijateljaMesano() {
     // Pocisti soroban
     reset('ucenje');
+
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
+
     // 13-7+6
     // najprej nastavimo desetice stevila 13
     for (var i = 1; i <= 10; i++) {
@@ -405,11 +491,18 @@ async function animacijaObaPrijateljaMesano() {
         document.getElementById(21).setAttribute('cy', yStart + (1 - 1) * yDiff - yDiff * i / 10);
         await sleep(100);
     }
+
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 }
 
 async function animacijaMnozenjeEnomestno() {
     // Pocisti soroban
     reset('ucenje');
+
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
+
     // 37*5
     // najprej izracunamo 3 * 5 in to vrednost prikazemo v deseticah in stoticah
     // najprej 1 v stoticah
@@ -439,11 +532,18 @@ async function animacijaMnozenjeEnomestno() {
         document.getElementById(15).setAttribute('cy', yUp + yDiff * i / 10);
         await sleep(100);
     }
+
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 }
 
 async function animacijaMnozenjeDvomestno() {
     // Pocisti soroban
     reset('ucenje');
+
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
+
     // 36*54
     // najprej izracunamo 3 * 5 in to vrednost prikazemo v stoticah in tisocicah
     // najprej 1 v tisocicah
@@ -499,11 +599,18 @@ async function animacijaMnozenjeDvomestno() {
         document.getElementById(14).setAttribute('cy', yStart + (4 - 1) * yDiff - yDiff * i / 10);
         await sleep(100);
     }
+
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 }
 
 async function animacijaDeljenje() {
     // Pocisti soroban
     reset('ucenje');
+
+    // Onemogoci gumbe
+    $('.enableOnInput').prop('disabled', true);
+
     // 632 : 8 = 79
     // najprej si prikazemo stevilo 632 na sorobanu
     // najprej 6 v stoticah
@@ -585,6 +692,9 @@ async function animacijaDeljenje() {
         document.getElementById(12).setAttribute('cy', yStart + (2 - 1) * yDiff - yDiff + yDiff * i / 10);
         await sleep(100);
     }
+
+    // Omogoci gumbe
+    $('.enableOnInput').prop('disabled', false);
 }
 
 

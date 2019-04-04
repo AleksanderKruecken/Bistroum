@@ -43,7 +43,7 @@ body {
 #67AB73, #B86F94 roza
 #D4AD6A, #44887B
 #D4AD6A, #5D5393
-#3C8C4A, #95C89E, #96416C = zelene kroglice, vijolièen okvir
+#3C8C4A, #95C89E, #96416C = zelene kroglice, vijolicen okvir
 */
 /* Elipse sorobana */
 ellipse {
@@ -57,7 +57,7 @@ ellipse {
     stroke-width: 12;
 }
 
-/* Vodoravna èrta sorobana */
+/* Vodoravna crta sorobana */
 #sredinskaCrta {
     stroke: #96416C;
     stroke-width: 11;

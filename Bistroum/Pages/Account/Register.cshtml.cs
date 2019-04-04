@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
@@ -40,11 +40,11 @@ namespace Bistroum.Pages.Account
         {
             [Required]
             [EmailAddress]
-            [Display(Name = "E-poöta")]
+            [Display(Name = "E-po≈°ta")]
             public string Email { get; set; }
 
             [Required]
-            [StringLength(100, ErrorMessage = "{0} mora biti dolgo najman {2} in najveË {1} znak.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "{0} mora biti dolgo najmanj {2} in najveƒç {1} znak.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Geslo")]
             public string Password { get; set; }
@@ -69,7 +69,7 @@ namespace Bistroum.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("Nov raËun je ustvarjen.");
+                    _logger.LogInformation("Nov raƒçun je ustvarjen.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);

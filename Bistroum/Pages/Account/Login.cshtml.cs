@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -37,7 +37,7 @@ namespace Bistroum.Pages.Account
         {
             [Required]
             [EmailAddress]
-            [Display(Name = "E-poöta")]
+            [Display(Name = "E-po≈°ta")]
             public string Email { get; set; }
 
             [Required]
@@ -45,7 +45,7 @@ namespace Bistroum.Pages.Account
             [Display(Name = "Geslo")]
             public string Password { get; set; }
 
-            [Display(Name = "Zapomni za naslednjiË")]
+            [Display(Name = "Zapomni za naslednjiƒç")]
             public bool RememberMe { get; set; }
         }
 
@@ -84,7 +84,7 @@ namespace Bistroum.Pages.Account
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning("Uporabniöki raËun je zaklenjen.");
+                    _logger.LogWarning("Uporabni≈°ki raƒçun je zaklenjen.");
                     return RedirectToPage("./Lockout");
                 }
                 else

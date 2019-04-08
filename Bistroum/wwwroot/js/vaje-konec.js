@@ -114,40 +114,66 @@ function brezPrijateljaSestevanje() {
 
     // Izbira prvega stevila
     // Za enico se omejimo le na stevili 1 in 2, da naslednji dve enici nista 0 
-    var i1 = izberiNakljucno(1, 2);
     var v1 = 0;
+    var i1 = 0;
     // Math.random vrne stevilo nakljucno med 0 in 1
     // V polovici primerov petico postavimo na 5, sicer ostane 0 (kot bi metali kovanec)
     if (Math.random() < 0.5) {
         v1 = 5;
+        i1 = izberiNakljucno(0, 2);
     }
+    else {
+        i1 = izberiNakljucno(1, 2);
+    }
+
     var stevilo1 = i1 + v1;
 
     // Izbira drugega stevila
     // Omejimo enico i1+i2<=3, da i3 ne bo 0 
-    var i2 = izberiNakljucno(1, 3 - i1);
+
+    var i2 = 0;
     var v2 = 0;
+
     // Ce v prvem stevilu ni bilo 5-ke
     if (v1 == 0) {
         if (Math.random() < 0.5) {
             v2 = 5;
+            i2 = izberiNakljucno(0, 3 - i1);
+        }
+        else {
+            i2 = izberiNakljucno(1, 3 - i1);
         }
     }
+    else {
+        i2 = izberiNakljucno(1, 3 - i1);
+    }
+
     var stevilo2 = i2 + v2;
 
     // Izbira tretjega stevila
     // Omejimo enico i1+i2+i3<=4, ker so lahko maksimalno 4 1-ke
-    var i3 = izberiNakljucno(1, 4 - i1 - i2);
+
+
+    var i3 = 0;
     var v3 = 0;
+
     // Ce v prvem in drugem  stevilu ni bilo 5-ke
     if ((v1 == 0) && (v2 == 0)) {
         if (Math.random() < 0.5) {
             v3 = 5;
+            i3 = izberiNakljucno(0, 4 - i1 - i2);
+        }
+        else {
+            i3 = izberiNakljucno(1, 4 - i1 - i2);
         }
     }
+    else { 
+        i3 = izberiNakljucno(1, 4 - i1 - i2);
+    }
+
     var stevilo3 = i3 + v3;
     var sestevek = stevilo1 + stevilo2 + stevilo3;
-
+    
     // Vstavi izracun v div
     $("#racunVaje").append("<div><b>Izračunaj:</b></div>");
     $("#racunVaje").append("<div id='stevilo1'>" + stevilo1 + "</div>");

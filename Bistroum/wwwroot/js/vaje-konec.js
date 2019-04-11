@@ -226,12 +226,14 @@ function brezPrijateljaOdstevanje() {
 
     // Izbira drugega stevila, ki se vedno odsteva
     // Za enico se omejimo le na stevili 1 do i1-1, da lahko odštejemo vsaj še eno enko
-    var i2 = izberiNakljucno(1, i1-1);
+    // razen v primeru, ko izberemo 5, potem so lahko enice od 0 do i1-1
+    var i2 = izberiNakljucno(1, i1 - 1);
     var v2 = 0;
     // Ce smo v prvem stevilu imeli petko lahko v drugem stevilu spet dobimo petko, da jo odstejemo
     if (v1 == 5) {
         if (Math.random() < 0.5) {
             v1 = 5;
+            i2 = izberiNakljucno(0, i1 - 1);
         }
     }
     var stevilo2 = - (i2 + v2);
@@ -245,6 +247,7 @@ function brezPrijateljaOdstevanje() {
     if ((v1 - v2) == 5) {
         if (Math.random() < 0.5) {
             v3 = 5;
+            i3 = izberiNakljucno(0, i1 - i2);
         }
     }
     var stevilo3 = -(i3 + v3);
@@ -259,12 +262,12 @@ function brezPrijateljaOdstevanje() {
     var racunVajeString = "<button type='button' class='btn btn-default' onclick = 'brezPrijateljaOdstevanje()'>Naslednji</button >";
     $("#racunVaje").append(racunVajeString);
     $("#napisVrednostSorobana").show();
-/*
-    $("#stevilo1").append(stevilo1);
-    $("#stevilo2").append(stevilo2);
-    $("#stevilo3").append(stevilo3);
-    $("#gumbPreveri").attr({ "onclick": "brezPrijateljaOdstevanje()" });
-*/
+    /*
+        $("#stevilo1").append(stevilo1);
+        $("#stevilo2").append(stevilo2);
+        $("#stevilo3").append(stevilo3);
+        $("#gumbPreveri").attr({ "onclick": "brezPrijateljaOdstevanje()" });
+    */
 }
 
 

@@ -205,7 +205,7 @@ function brezPrijateljaOdstevanje() {
     $("#stevilo2").css("color", "black");
     $("#stevilo3").empty();
     $("#stevilo3").css("color", "black");
-    $("#pravilnoNepravilno").empty();
+    $("#pravilnoNepravilno").empty(); 
 
     // Pocisti soroban
     reset('vaje');

@@ -215,41 +215,65 @@ function brezPrijateljaOdstevanje() {
 
     // Izbira prvega stevila
     // Za enico se omejimo le na stevili 2 do 4, da imamo dve števili, ki ju lahko odštejemo (npr. dve enki) 
-    var i1 = izberiNakljucno(2, 4);
+    var i1 = 0;
     // Math.random vrne stevilo nakljucno med 0 in 1
     // V polovici primerov petico postavimo na 5, sicer ostane 0 (kot bi metali kovanec)
     var v1 = 0;
     if (Math.random() < 0.5) {
         v1 = 5;
+        i1 = izberiNakljucno(1, 4);
     }
+    else {
+        i1 = izberiNakljucno(2, 4);
+    }
+     
     var stevilo1 = i1 + v1;
 
     // Izbira drugega stevila, ki se vedno odsteva
-    // Za enico se omejimo le na stevili 1 do i1-1, da lahko odštejemo vsaj še eno enko
+    // Za enico se omejimo na stevila 1 do i1-1, da lahko odštejemo vsaj še eno enko
     // razen v primeru, ko izberemo 5, potem so lahko enice od 0 do i1-1
-    var i2 = izberiNakljucno(1, i1 - 1);
+    var i2 = 0;
     var v2 = 0;
     // Ce smo v prvem stevilu imeli petko lahko v drugem stevilu spet dobimo petko, da jo odstejemo
     if (v1 == 5) {
         if (Math.random() < 0.5) {
-            v1 = 5;
+            v2 = 5;
             i2 = izberiNakljucno(0, i1 - 1);
         }
+        else {
+            i2 = izberiNakljucno(1, i1);
+        }
     }
+    else {
+        i2 = izberiNakljucno(1, i1-1);
+    }
+
     var stevilo2 = - (i2 + v2);
 
     // Izbira tretjega stevila, ki se vedno odsteva
     // Za enico se omejimo le na stevili 1 do i1-i2, da lahko odštejemo maksimalno vse enice
-    var i3 = izberiNakljucno(1, i1 - i2);
+    // v primerum, ko lahko izberemo 5, pustimo enice tudi od 0 naprej
+    var i3 = 0;
     var v3 = 0;
 
     // Pogleda ali je v prvem stevilu bila petka in v drugem stevilu ni bila petka. V taksnem primeru lahko odstejemo petko
     if ((v1 - v2) == 5) {
-        if (Math.random() < 0.5) {
+        // za odstevanje nimamo na razpolago enic, zato odstejemo 5 
+        if (i1 == i2) {
             v3 = 5;
-            i3 = izberiNakljucno(0, i1 - i2);
+            i3 = 0;
+        }
+        else {
+            if (Math.random() < 0.5) {
+                v3 = 5;
+            } 
+            i3 = izberiNakljucno(1, i1 - i2);
         }
     }
+    else {
+        i3 = izberiNakljucno(1, i1 - i2);
+    }
+
     var stevilo3 = -(i3 + v3);
     var sestevek = stevilo1 + stevilo2 + stevilo3;
 
@@ -293,72 +317,220 @@ function brezPrijateljaMesano() {
     var znak2 = 1;
 
 
-    // Izbira prvega stevila
-    // Izbira enic
-    var i1 = izberiNakljucno(1, 4);
+    var i1 = 0;
     var v1 = 0;
-    // Mecemo kovanec ali bomo imeli petko
-    if (Math.random() < 0.5) {
-        v1 = 5;
-    }
-    var stevilo1 = i1 + v1;
-
-    // Izbira drugega stevila
     var v2 = 0;
     var i2 = 0;
-    // Mecemo kovanec ali bo sestevanje ali odstevanje
-    // Random je vrnil sestevanje
-    if (Math.random() < 0.5) {
-        // Vsota enic drugega in prvega stevila je lahko najvec stiri
-        i2 = izberiNakljucno(0, 4 - i1);
-        // Ce v prvem stevilu ni bilo petke, jo lahko v drugem stevilu nakljucno izberemo
-        if (v1 == 0) {
-            if (Math.random() < 0.5) {
-                v1 = 5;
-            }
-        }
-    }
-    // Random je vrnil odstevanje
-    else {
-        znak1 = -1;
-        // Odstejemo lahko nic enic ali vse enice iz prvega stevila
-        i2 = izberiNakljucno(0, i1);
-        // Petko lahko odstejemo le, ce je bila v prvem primeru petka
-        if (v1 == 5) {
-            if (Math.random() < 0.5) {
-                v2 = 5;
-            }
-        }
-    }
-    var stevilo2 = znak1 * (i2 + v2);
-
-    // Izbira tretjega stevila
     var v3 = 0;
     var i3 = 0;
-    // Mecemo kovanec ali bo pri tretjem stevilu sestevanje ali odstevanje
+
+    // Mecemo kovanec ali bo najprej sestevanje ali odstevanje
     // Random je vrnil sestevanje
     if (Math.random() < 0.5) {
-        // Vsota enic tretjega in rezultata enic prvih dveh stevil je lahko max 4
-        i3 = izberiNakljucno(0, 4 - (i1 + znak1 * i2));
-        // Ce v prvem in drugem stevilu ni bilo petke ali je bila petka v obeh stevilih, jo lahko v tretjem stevilu nakljucno izberemo
-        if (((v1 + znak1 * v2) == 0)) {
+
+        // Izbira prvega stevila
+        // Mecemo kovanec ali bomo imeli petko
+       if (Math.random() < 0.5) {
+           v1 = 5;
+           i1 = izberiNakljucno(0, 3);
+        }
+       else {
+           v1 = 0;
+           i1 = izberiNakljucno(1, 4);
+        }
+       // Izbira drugega stevila
+        if (i1 == 4) {
+            v2 = 5;
+            i2 = 0;
+        }
+        else {
+           // Ce v prvem stevilu ni bilo petke, jo lahko v drugem stevilu nakljucno izberemo
+            if (v1 == 0) {
+                if (Math.random() < 0.5) {
+                    v2 = 5;
+                    i2 = izberiNakljucno(0, 4 - i1);
+                }
+                else {
+                    v2 = 0;
+                    i2 = izberiNakljucno(1, 4 - i1);
+                }
+            }
+            else {
+                v2 = 0;
+                i2 = izberiNakljucno(1, 4 - i1);
+            }
+        }
+        // Izbira tretjega stevila
+
+        // ko je vsota prvega in drugega stevila 9, izberemo za drugo operacijo odstevanje
+        if ((i1 + v1 + i2 + v2) == 9) {
+            znak2 = -1;
             if (Math.random() < 0.5) {
                 v3 = 5;
+                i3 = izberiNakljucno(0, 4);
+            }
+            else {
+                v3 = 0;
+                i3 = izberiNakljucno(1, 4);
+            }
+        }
+        // vsota prvega in drugega je manj kot 9, zato je lahko druga operacija karkoli
+        else {
+            // mecemo kocko
+            //druga operacija je sestevanje
+            if (Math.random() < 0.5) {
+                if ((i1 + i2) == 4) {
+                    v3 = 5;
+                    i3 = 0;
+                }
+                else {
+                    if ((v1 + v2) == 0) {
+                        if (Math.random() < 0.5) {
+                            v3 = 5;
+                            i3 = izberiNakljucno(0, 4 - i1 - i2);
+                        }
+                        else {
+                            v3 = 0;
+                            i3 = izberiNakljucno(1, 4 - i1 - i2);
+                        }
+                    }
+                    else {
+                        v3 = 0;
+                        i3 = izberiNakljucno(1, 4 - i1 - i2);
+                    }
+                }
+            }
+            // druga operacija je odstevanje
+            else {
+                znak2 = -1;
+                if ((i1 + i2) == 0) {
+                    v3 = 5;
+                    i3 = 0;
+                }
+                else {
+                    if (v1 + v2 == 5) {
+                        if (Math.random() < 0.5) {
+                            v3 = 5;
+                            i3 = izberiNakljucno(0,i1 + i2);
+                        }
+                        else {
+                            v3 = 0;
+                            i3 = izberiNakljucno(1, i1 + i2);
+                        }
+                    }
+                    else {
+                        v3 = 0;
+                        i3 = izberiNakljucno(1, i1 + i2);
+                    }
+                }
             }
         }
     }
-    // Random je vrnil odstevanje
+     // prva operacija je odstevanje
     else {
-        znak2 = -1;
-        // Odstejemo lahko nic enic ali vse enice delnega rezultata
-        i3 = izberiNakljucno(0, i1 + znak1 * i2);
-        // 5 lahko odstejemo, ce je delni rezultat enak 5
-        if ((v1 + znak1 * v2) == 5) {
-            if (Math.random() < 0.5) {
-                v3 = 5;
+
+        znak1 = -1;
+        // Izbira prvega stevila
+        // Mecemo kovanec ali bomo imeli petko
+        if (Math.random() < 0.5) {
+            v1 = 5;
+            i1 = izberiNakljucno(0, 4);
+        }
+        else {
+             v1 = 0;
+             i1 = izberiNakljucno(1, 4);
+         }
+         // Izbira drugega stevila
+        if (i1 == 0) {
+            v2 = 5;
+            i2 = 0;
+        }
+        else {
+             // Ce je bila v prvem stevilu petka, jo lahko v drugem stevilu nakljucno izberemo
+             if (v1 == 5) {
+                 if (Math.random() < 0.5) {
+                     v2 = 5;
+                     i2 = izberiNakljucno(0, i1);
+                 }
+                 else {
+                     v2 = 0;
+                     i2 = izberiNakljucno(1, i1);
+                 }
+             }
+             else {
+                 v2 = 0;
+                 i2 = izberiNakljucno(1, i1);
             }
         }
+
+         // Izbira tretjega stevila
+
+         // ko je razlika prvega in drugega stevila 0, izberemo za drugo operacijo sestevanje
+         if ((i1 + v1 - i2 - v2) == 0) {
+             if (Math.random() < 0.5) {
+                 v3 = 5;
+                 i3 = izberiNakljucno(0, 4);
+             }
+             else {
+                 v3 = 0;
+                 i3 = izberiNakljucno(1, 4);
+             }
+         }
+         // razlika prvega in drugega je več kot 0, zato je lahko druga operacija karkoli
+         else {
+             // mecemo kocko
+             //druga operacija je sestevanje
+             if (Math.random() < 0.5) {
+                 if ((i1 - i2) == 4) {
+                     v3 = 5;
+                     i3 = 0;
+                 }
+                 else {
+                     if ((v1 - v2) == 0) {
+                         if (Math.random() < 0.5) {
+                             v3 = 5;
+                             i3 = izberiNakljucno(0, 4 - (i1 - i2));
+                         }
+                         else {
+                             v3 = 0;
+                             i3 = izberiNakljucno(1, 4 - (i1 - i2));
+                         }
+                     }
+                     else {
+                         v3 = 0;
+                         i3 = izberiNakljucno(1, 4 - (i1 - i2));
+                     }
+                 }
+             }
+             // druga operacija je odstevanje
+             else {
+                 znak2 = -1;
+                 if (i1 == i2) {
+                     v3 = 5;
+                     i3 = 0;
+                 }
+                 else {
+                     if ((v1 - v2) == 5) {
+                        if (Math.random() < 0.5) {
+                            v3 = 5;
+                            i3 = izberiNakljucno(0, i1 - i2);
+                        }
+                        else {
+                            v3 = 0;
+                            i3 = izberiNakljucno(1, i1 - i2);
+                        }
+                     }
+                     else {
+                        v3 = 0;
+                         i3 = izberiNakljucno(1, i1 - i2);
+                     }
+                 }
+             }
+         }
     }
+
+    var stevilo1 = i1 + v1;
+    var stevilo2 = znak1 * (i2 + v2);
     var stevilo3 = znak2 * (i3 + v3);
     var sestevek = stevilo1 + stevilo2 + stevilo3;
 
@@ -419,7 +591,7 @@ function maliPrijateljSestevanje() {
     }
     // Enice so prisle cez 5 in moramo paziti da je njihova vsota  najvec 9
     else {
-        i3 = izberiNakljucno(0, 9 - i1 - i2);
+        i3 = izberiNakljucno(1, 9 - i1 - i2);
     }
     // zaradi prehoda cez 5 mora biti tretja petka vedno 0
     var v3 = 0;
@@ -487,7 +659,7 @@ function maliPrijateljOdstevanje() {
     }
     // V prvem racunu smo ze imeli prehod cez 5, zato moramo sedaj paziti, koliko se lahko odstejemo
     else {
-        i3 = izberiNakljucno(0, stevilo1 + stevilo2);
+        i3 = izberiNakljucno(1, stevilo1 + stevilo2);
     }
     // zaradi prehoda cez 5 mora biti tretja petka vedno 0
     var v3 = 0;
@@ -614,19 +786,31 @@ function velikiPrijateljSestevanje() {
     reset('vaje');
 
     // Izbira prvega stevila (lahko je od 1 od 9)
-    var i1 = izberiNakljucno(1, 4);
+    var i1 = 0;
     var v1 = 0;
     if (Math.random() < 0.5) {
         v1 = 5;
+        i1 = izberiNakljucno(0, 4);
     }
+    else {
+        i1 = izberiNakljucno(1, 4);
+    }
+
     var stevilo1 = i1 + v1;
 
     // Izbira drugega stevila
-    var velikPrijatelj = izberiNakljucno(1, i1);
-    if (v1 == 5) {
-        // Random ali bomo odšteli tudi petice
-        if (Math.random() < 0.5) {
-            velikPrijatelj = velikPrijatelj + 5;
+    var velikPrijatelj = 0;
+
+    if (i1 == 0) {
+        velikPrijatelj = 5;
+    }
+    else {
+        velikPrijatelj = izberiNakljucno(1, i1);
+        if (v1 == 5) {
+            // Random ali bomo odšteli tudi petice
+            if (Math.random() < 0.5) {
+                velikPrijatelj = velikPrijatelj + 5;
+            }
         }
     }
     // Tukaj uporabniku povemo katero stevilo naj pristeje, da bo moral premakniti se desetico
